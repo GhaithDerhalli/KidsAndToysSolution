@@ -2,7 +2,7 @@
 
 namespace KidsAndToys.Controllers
 {
-    public class ToysController : Controller
+    public class ProductsController : Controller
     {
         public IActionResult Index()
         {
