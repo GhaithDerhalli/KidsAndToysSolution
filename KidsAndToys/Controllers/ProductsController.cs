@@ -23,15 +23,15 @@ namespace KidsAndToys.Controllers
         [HttpGet]
         public IActionResult CreateUser()
         {
-            return Content("new user");
-            //return View();
+            //return Content("new user");
+            return View();
         }
         [Route("login")]
         [HttpGet]
         public IActionResult Login()
         {
-            return Content("login");
-            //return View();
+            //return Content("login");
+            return View();
         }
 
         [Route("myads")]
