@@ -10,5 +10,14 @@ namespace KidsAndToys.Controllers
         {
             return View();
         }
+
+        [Route("newads")]
+        [HttpGet]
+        public IActionResult NewAds()
+        {
+            return Content("test");
+            //return View();
+        }
+
     }
 }
