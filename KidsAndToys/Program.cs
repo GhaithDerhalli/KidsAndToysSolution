@@ -19,4 +19,3 @@ app.UseRouting();
 app.UseEndpoints(o => o.MapControllers());
 
 app.Run();
-Console.WriteLine("h");
