@@ -4,9 +4,11 @@ namespace KidsAndToys.Controllers
 {
     public class ProductsController : Controller
     {
-        public IActionResult Index()
+        [Route("")]
+        [HttpGet]
+        public IActionResult Home()
         {
-            return View();
+            return Content("Home");
         }
     }
 }
