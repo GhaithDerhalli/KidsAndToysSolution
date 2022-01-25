@@ -1,1 +1,47 @@
-﻿
+﻿@model NewAdsVM
+
+
+<h3>Lägg till en annons </h3>
+<form >
+  
+    <label asp-for="ProductName">Namn</label>
+    <input asp-for="ProductName" />
+    <span asp-validation-for="ProductName"></span>
+
+    <label asp-for="Category"></label>
+    <select
+    asp-for="CategoryValue" asp-items = "Model.Category"></select>
+    <span asp-validation-for="CategoryValue"></span>
+    
+    <label asp-for="Age"></label>
+    <select
+    asp-for="AgeValue" asp-items = "Model.Age"></select>
+    <span asp-validation-for="AgeValue"></span>
+
+    <label asp-for="Condition"></label>
+    <select
+    asp-for="ConditionValue" asp-items = "Model.Condition"></select>
+    <span asp-validation-for="ConditionValue"></span>
+
+
+
+    <label asp-for="ConditionDescription">Skick beskrivning</label>
+    <input asp-for="ConditionDescription" />
+    <span asp-validation-for="ConditionDescription"></span>
+
+    <label asp-for="Price">Pris</label>
+    <input asp-for="Price" />
+    <span asp-validation-for="Price"></span>
+
+    <label asp-for="Description">Beskrivning</label>
+    <input asp-for="Description" />
+    <span asp-validation-for="Description"></span>
+
+    <label asp-for="City"></label>
+    <select
+    asp-for="CityValue" asp-items = "Model.City"></select>
+    <span asp-validation-for="CityValue"></span>
+    
+</form>
+<div asp-validation-summary="All"></div>
+ 

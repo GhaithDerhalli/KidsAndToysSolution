@@ -1,10 +1,12 @@
 
+using KidsAndToys.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Stöd för controllers och views
 builder.Services.AddControllersWithViews();
 
-//builder.Services.AddTransient<AcmeService>(); // DI: Ny instans varje gång
+builder.Services.AddTransient<ProductsService>(); // DI: Ny instans varje gång
 //builder.Services.AddSingleton<ProductService>(); // DI: Samma instans varje gång
 
 //var connString = builder.Configuration.GetConnectionString("AcmeConnection");

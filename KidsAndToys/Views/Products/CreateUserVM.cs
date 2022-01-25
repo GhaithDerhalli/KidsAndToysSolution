@@ -12,7 +12,7 @@ namespace KidsAndToys.Views.Products
         public string City { get; set; }
         public string Password { get; set; }
         public string PasswordRepeat { get; set; }
-
+        [Display(Name = "Profil Bild")]
         public IFormFile ProfilePic { get; set; }
     }
 }

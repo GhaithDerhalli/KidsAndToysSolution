@@ -1,9 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using KidsAndToys.Models;
+using Microsoft.AspNetCore.Mvc;
+
 
 namespace KidsAndToys.Controllers
 {
     public class ProductsController : Controller
     {
+        ProductsService productsService;
+        public ProductsController(ProductsService productsService)
+        {
+            this.productsService =  productsService;
+        }
         [Route("")]
         [HttpGet]
         public IActionResult Home()
@@ -15,8 +22,8 @@ namespace KidsAndToys.Controllers
         [HttpGet]
         public IActionResult NewAds()
         {
-            return Content("new ads");
-            //return View();
+            var viewModel = productsService.GetDropDownLists();
+            return View(viewModel);
         }
 
         [Route("createuser")]
