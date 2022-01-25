@@ -8,7 +8,7 @@ namespace KidsAndToys.Controllers
         [HttpGet]
         public IActionResult Home()
         {
-            return Content("Home");
+            return View();
         }
     }
 }

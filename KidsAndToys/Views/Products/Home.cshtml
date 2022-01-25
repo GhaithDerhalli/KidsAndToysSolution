@@ -1,7 +1,7 @@
 ﻿@model KidsAndToys.Views.Products.HomeVM[]
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="se">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +10,16 @@
     <title>KidsAndToys</title>
 </head>
 <body>
+    <h1>Kids N' Toys</h1>
     
+    <nav>
+        <a asp-controller="Products" asp-action="Home">Handla</a>
+        <a asp-controller="Products" asp-action="NewAds">Sälj</a>
+        <a asp-controller="Products" asp-action="MyAds">Mina annons</a>
+        <a asp-controller="Products" asp-action="LogIn">Logga in</a>
+        <a asp-controller="Products" asp-action="CreateUser">Skapa ett konto</a>
+    </nav>
+    <hr/>
+
 </body>
 </html>
