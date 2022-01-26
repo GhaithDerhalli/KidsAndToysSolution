@@ -9,10 +9,10 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<UsersService>();
 builder.Services.AddTransient<ProductsService>();
 
-var connString = builder.Configuration
-    .GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<IdentityDbContext>(
-    o => o.UseSqlServer(connString));
+//var connString = builder.Configuration
+//    .GetConnectionString("DefaultConnection");
+//builder.Services.AddDbContext<IdentityDbContext>(
+//    o => o.UseSqlServer(connString));
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<IdentityDbContext>()
     .AddDefaultTokenProviders();

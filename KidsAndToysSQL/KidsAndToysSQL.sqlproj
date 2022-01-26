@@ -57,4 +57,8 @@
   <ItemGroup>
     <Folder Include="Properties" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="Users.sql" />
+    <Build Include="Products.sql" />
+  </ItemGroup>
 </Project>
