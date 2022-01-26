@@ -31,11 +31,12 @@ namespace KidsAndToys.Views.Products
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Repeat password")]
+        [Compare(nameof(Password))]
         public string PasswordRepeat { get; set; }
 
 
-        [Display(Name = "Profil Bild")]
-        [Required(ErrorMessage = "Attach a Picture")]
-        public IFormFile ProfilePic { get; set; }
+        //[Display(Name = "Profil Bild")]
+        //[Required(ErrorMessage = "Attach a Picture")]
+        //public IFormFile ProfilePic { get; set; }
     }
 }

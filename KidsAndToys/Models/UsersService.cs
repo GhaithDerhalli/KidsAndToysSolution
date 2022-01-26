@@ -1,4 +1,5 @@
-﻿using KidsAndToys.Views.Products;
+﻿using KidsAndToys.Models.Entities;
+using KidsAndToys.Views.Products;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
