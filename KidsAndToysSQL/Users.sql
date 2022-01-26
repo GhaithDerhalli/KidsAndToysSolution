@@ -1,9 +1,6 @@
 ﻿CREATE TABLE [dbo].[Users]
 (
-	[Id] INT NOT NULL PRIMARY KEY Identity,
-	[UserName] varchar(30) NOT NULL,
-	[Epost] varchar(MAX) NOT NULL,
-	[PhoneNumber] int NOT NULL,
+    [Id] NVARCHAR (450) NOT NULL PRIMARY KEY, --References dbo.AspNetUsers(Id),
 	[ZipCode] int NOT NULL,
 	[Address] varchar(30) NOT NULL,
 	[City] varchar(30) NOT NULL
