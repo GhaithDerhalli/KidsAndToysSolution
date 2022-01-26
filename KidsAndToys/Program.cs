@@ -1,5 +1,6 @@
 
 using KidsAndToys.Models;
+using KidsAndToys.Models.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -11,11 +12,16 @@ builder.Services.AddTransient<ProductsService>();
 
 var connString = builder.Configuration
     .GetConnectionString("DefaultConnection");
+
 builder.Services.AddDbContext<IdentityDbContext>(
     o => o.UseSqlServer(connString));
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<IdentityDbContext>()
     .AddDefaultTokenProviders();
+
+builder.Services.AddDbContext<KidsAndToysDBContext>(
+    o => o.UseSqlServer(connString));
+
 builder.Services.ConfigureApplicationCookie(
     o => o.LoginPath = "/login");
 

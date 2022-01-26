@@ -10,9 +10,12 @@ namespace KidsAndToys.Models
         UserManager<IdentityUser> userManager;
         SignInManager<IdentityUser> signInManager;
         RoleManager<IdentityRole> roleManager;
+        KidsAndToysDBContext kidsAndToysDBContext;
+
 
         public UsersService(
             IdentityDbContext identityDBContext,
+            KidsAndToysDBContext kidsAndToysDBContext,
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
             RoleManager<IdentityRole> roleManager
@@ -22,6 +25,7 @@ namespace KidsAndToys.Models
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.roleManager = roleManager;
+            this.kidsAndToysDBContext = kidsAndToysDBContext;
         }
         public async Task<string> TryRegisterAsync(CreateUserVM viewModel)
         {
@@ -30,6 +34,18 @@ namespace KidsAndToys.Models
                 UserName = viewModel.Username,
             }, viewModel.Password);
             bool createSucceeded = result.Succeeded;
+
+            //var query = kidsAndToysDBContext.Users.Add(new CreateUserVM
+            //{
+            //    Username = viewModel.Username,
+            //    Epost = viewModel.Epost,
+            //    PhoneNumber = viewModel.PhoneNumber,
+            //    ZipCode = viewModel.ZipCode,
+            //    Address = viewModel.Address,
+            //    City = viewModel.City
+
+            //});
+            kidsAndToysDBContext.SaveChanges();
             return result.Errors.FirstOrDefault()?.Description;
         }
 
