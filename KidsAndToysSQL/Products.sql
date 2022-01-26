@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[Orders]
 (
 	[Id] INT NOT NULL PRIMARY KEY Identity,
-	[UserId] INT NOT NULL References Users(ID),
+	[UserId] INT NOT NULL,
 	[ProductName] varchar (30) NOT NULL,
 	[Age] INT NOT NULL,
 	[Category] varchar(30)  NOT NULL,
