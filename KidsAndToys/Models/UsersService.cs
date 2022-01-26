@@ -28,6 +28,7 @@ namespace KidsAndToys.Models
             {
                 UserName = viewModel.Username,
             }, viewModel.Password);
+            bool createSucceeded = result.Succeeded;
             return result.Errors.FirstOrDefault()?.Description;
         }
 

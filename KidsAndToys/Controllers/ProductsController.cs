@@ -54,7 +54,7 @@ namespace KidsAndToys.Controllers
             }
 
             // Redirect user
-            return RedirectToAction(nameof(Login));
+            return RedirectToAction(nameof(Home));
         }
         [Route("login")]
         [HttpGet]
