@@ -13,14 +13,14 @@ builder.Services.AddTransient<ProductsService>();
 var connString = builder.Configuration
     .GetConnectionString("DefaultConnection");
 
+//Lagt till måste vara över IdentityDb
+builder.Services.AddDbContext<KidsAndToysDBContext>(
+    o => o.UseSqlServer(connString));
 builder.Services.AddDbContext<IdentityDbContext>(
     o => o.UseSqlServer(connString));
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<IdentityDbContext>()
     .AddDefaultTokenProviders();
-
-builder.Services.AddDbContext<KidsAndToysDBContext>(
-    o => o.UseSqlServer(connString));
 
 builder.Services.ConfigureApplicationCookie(
     o => o.LoginPath = "/login");

@@ -35,16 +35,16 @@ namespace KidsAndToys.Models
             }, viewModel.Password);
             bool createSucceeded = result.Succeeded;
 
-            //var query = kidsAndToysDBContext.Users.Add(new CreateUserVM
-            //{
-            //    Username = viewModel.Username,
-            //    Epost = viewModel.Epost,
-            //    PhoneNumber = viewModel.PhoneNumber,
-            //    ZipCode = viewModel.ZipCode,
-            //    Address = viewModel.Address,
-            //    City = viewModel.City
+            var query = kidsAndToysDBContext.Users.Add( new User
+            {
+                UserName = viewModel.Username,
+                Epost = viewModel.Epost,
+                PhoneNumber = viewModel.PhoneNumber,
+                ZipCode = viewModel.ZipCode,
+                Address = viewModel.Address,
+                City = viewModel.City
 
-            //});
+            });
             kidsAndToysDBContext.SaveChanges();
             return result.Errors.FirstOrDefault()?.Description;
         }
