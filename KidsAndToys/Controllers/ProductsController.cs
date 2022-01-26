@@ -82,6 +82,17 @@ namespace KidsAndToys.Controllers
             // Redirect user
             return RedirectToAction(nameof(Home));
         }
+       
+        [Route("logout")]
+        [HttpGet]    
+        public async Task<IActionResult> Logout()
+        {
+            await usersService.LogOutAsync();
+            return RedirectToAction(nameof(Login));
+
+        }
+
+
         [Authorize]
         [Route("myads")]
         [HttpGet]
