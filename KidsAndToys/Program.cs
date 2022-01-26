@@ -1,23 +1,33 @@
 
 using KidsAndToys.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Stöd för controllers och views
 builder.Services.AddControllersWithViews();
-
-builder.Services.AddTransient<ProductsService>(); // DI: Ny instans varje gång
-//builder.Services.AddSingleton<ProductService>(); // DI: Samma instans varje gång
-
-//var connString = builder.Configuration.GetConnectionString("AcmeConnection");
-
+builder.Services.AddTransient<UsersService>();
+var connString = builder.Configuration
+    .GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<IdentityDbContext>(
+    o => o.UseSqlServer(connString));
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<IdentityDbContext>()
+    .AddDefaultTokenProviders();
+builder.Services.ConfigureApplicationCookie(
+    o => o.LoginPath = "/login");
 
 var app = builder.Build();
-
-// Stöd för att mappa HTTP-anrop till våra controllers
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/error/exception");
+    app.UseStatusCodePagesWithRedirects("/error/http/{0}");
+}
+app.UseHttpsRedirection();
 app.UseRouting();
-
-// Stöd för Route-attribut på våra Action-metoder
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseEndpoints(o => o.MapControllers());
+
 
 app.Run();

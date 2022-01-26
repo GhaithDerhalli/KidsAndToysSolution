@@ -13,9 +13,20 @@
     <nav>
         <a asp-controller="Products" asp-action="Home">Handla</a>
         <a asp-controller="Products" asp-action="NewAds">Sälj</a>
-        <a asp-controller="Products" asp-action="MyAds">Mina annons</a>
-        <a asp-controller="Products" asp-action="LogIn">Logga in</a>
-        <a asp-controller="Products" asp-action="CreateUser">Skapa ett konto</a>
+        
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a asp-controller="Products" asp-action="MyAds">Mina annons</a>
+            <a asp-controller="Products" asp-action="Logout">Logga ut</a>
+        }
+        else
+        {
+
+            <a asp-controller="Products" asp-action="LogIn">Logga in</a>
+            <a asp-controller="Products" asp-action="CreateUser">Skapa ett konto</a>
+        }
+
+        
     </nav>
     <hr/>
     <div>
