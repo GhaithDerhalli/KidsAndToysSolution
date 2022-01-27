@@ -16,6 +16,7 @@ namespace KidsAndToys.Models.Entities
         {
         }
 
+        public virtual DbSet<Age> Ages { get; set; } = null!;
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; } = null!;
         public virtual DbSet<AspNetRoleClaim> AspNetRoleClaims { get; set; } = null!;
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; } = null!;
@@ -27,6 +28,35 @@ namespace KidsAndToys.Models.Entities
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Age>(entity =>
+            {
+                entity.ToTable("Age");
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e._03Mån)
+                    .HasMaxLength(1)
+                    .HasColumnName("0-3 Mån");
+
+                entity.Property(e => e._36Mån)
+                    .HasMaxLength(1)
+                    .HasColumnName("3-6 Mån");
+
+                entity.Property(e => e._69Mån)
+                    .HasMaxLength(1)
+                    .HasColumnName("6-9 Mån");
+
+                entity.Property(e => e._912Mån)
+                    .HasMaxLength(1)
+                    .HasColumnName("9-12 Mån");
+
+                entity.HasOne(d => d.IdNavigation)
+                    .WithOne(p => p.Age)
+                    .HasForeignKey<Age>(d => d.Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Age__Id__4316F928");
+            });
+
             modelBuilder.Entity<AspNetRole>(entity =>
             {
                 entity.HasIndex(e => e.NormalizedName, "RoleNameIndex")
@@ -132,7 +162,7 @@ namespace KidsAndToys.Models.Entities
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Products__UserId__5CD6CB2B");
+                    .HasConstraintName("FK__Products__UserId__403A8C7D");
             });
 
             modelBuilder.Entity<User>(entity =>
@@ -149,7 +179,7 @@ namespace KidsAndToys.Models.Entities
                     .WithOne(p => p.User)
                     .HasForeignKey<User>(d => d.Id)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Users__Id__59FA5E80");
+                    .HasConstraintName("FK__Users__Id__3D5E1FD2");
             });
 
             OnModelCreatingPartial(modelBuilder);
