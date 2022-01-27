@@ -1,10 +1,12 @@
-﻿using KidsAndToys.Views.Products;
+﻿using KidsAndToys.Models.Entities;
+using KidsAndToys.Views.Products;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace KidsAndToys.Models
 {
     public class ProductsService
     {
+        KidsAndToysDBContext kidsAndToysDBContext;
         public NewAdsVM GetDropDownLists()
         {
             return new NewAdsVM
@@ -53,7 +55,26 @@ namespace KidsAndToys.Models
             };
 
         }
-        
+        internal void AddAd(NewAdsVM viewModel)
+        {
+            var query = kidsAndToysDBContext.Products
+                .Add(new Product
+                {
+                    ProductName = viewModel.ProductName,
+                    //Category = viewModel.Category,
+                    //Age = viewModel.Age,
+                    //Condition = viewModel.ConditionValue,
+                    ConditionDescription = viewModel.ConditionDescription,
+                    Price = viewModel.Price,
+                    Description = viewModel.Description,
+                    City = viewModel.CityValue
 
+                });
+            kidsAndToysDBContext.SaveChanges();
+        }
     }
+
+
+
 }
+

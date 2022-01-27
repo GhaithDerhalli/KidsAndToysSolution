@@ -29,6 +29,17 @@ namespace KidsAndToys.Controllers
             var viewModel = productsService.GetDropDownLists();
             return View(viewModel);
         }
+        [Authorize]
+        [Route("newads")]
+        [HttpPost]
+        public IActionResult NewAds(NewAdsVM viewModel)
+        {
+            if (!ModelState.IsValid)
+                return View(viewModel);
+            productsService.AddAd(viewModel);
+            return RedirectToAction(nameof(Index));
+        }
+
 
         [Route("createuser")]
         [HttpGet]

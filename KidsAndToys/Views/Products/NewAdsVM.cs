@@ -15,7 +15,7 @@ namespace KidsAndToys.Views.Products
 
 
         [Display(Name = "Kategori")]
-        public SelectListItem[]? Category { get; set; }
+        public SelectListItem[]? Category { get; set; } = null!;
         [Range(1, 5)]
         public int CategoryValue { get; set; }
 
