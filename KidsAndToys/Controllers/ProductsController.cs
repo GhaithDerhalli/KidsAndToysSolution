@@ -37,7 +37,7 @@ namespace KidsAndToys.Controllers
             if (!ModelState.IsValid)
                 return View(viewModel);
             productsService.AddAd(viewModel);
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Home));
         }
 
 

@@ -7,6 +7,10 @@ namespace KidsAndToys.Models
     public class ProductsService
     {
         KidsAndToysDBContext kidsAndToysDBContext;
+        public ProductsService(KidsAndToysDBContext kidsAndToysDBContext)
+        {
+            this.kidsAndToysDBContext = kidsAndToysDBContext;
+        }
         public NewAdsVM GetDropDownLists()
         {
             return new NewAdsVM
@@ -67,7 +71,7 @@ namespace KidsAndToys.Models
                     ConditionDescription = viewModel.ConditionDescription,
                     Price = viewModel.Price,
                     Description = viewModel.Description,
-                    City = viewModel.CityValue
+                    CityId = viewModel.CityValue
 
                 });
             kidsAndToysDBContext.SaveChanges();

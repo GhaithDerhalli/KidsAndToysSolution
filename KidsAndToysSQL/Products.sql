@@ -9,5 +9,5 @@
 	[ConditionDescription] varchar(MAX) NULL,
 	[Price] money NOT NULL,
 	[Description] varchar NULL,
-	[City] varchar NOT NULL
+	[CityId] int NOT NULL
 )
