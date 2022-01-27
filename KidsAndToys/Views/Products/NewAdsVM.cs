@@ -33,6 +33,6 @@ namespace KidsAndToys.Views.Products
         [Display(Name = "Stad")]
         public SelectListItem[]? City { get; set; }
         [Range(1,4)]
-        public string CityValue { get; set; }
+        public int CityValue { get; set; }
     }
 }

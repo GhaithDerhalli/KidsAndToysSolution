@@ -140,10 +140,6 @@ namespace KidsAndToys.Models.Entities
 
             modelBuilder.Entity<Product>(entity =>
             {
-                entity.Property(e => e.City)
-                    .HasMaxLength(1)
-                    .IsUnicode(false);
-
                 entity.Property(e => e.ConditionDescription).IsUnicode(false);
 
                 entity.Property(e => e.Description)

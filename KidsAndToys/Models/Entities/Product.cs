@@ -14,7 +14,7 @@ namespace KidsAndToys.Models.Entities
         public string? ConditionDescription { get; set; }
         public decimal Price { get; set; }
         public string? Description { get; set; }
-        public string City { get; set; } = null!;
+        public int CityId { get; set; }
 
         public virtual User User { get; set; } = null!;
         public virtual Age Age { get; set; } = null!;
