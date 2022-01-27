@@ -32,7 +32,7 @@ namespace KidsAndToys.Models
             var result = await userManager.CreateAsync(new IdentityUser
             {
                 UserName = viewModel.Username,
-                Email = viewModel.Epost
+                Email = viewModel.Epost,
             }, viewModel.Password);
             bool createSucceeded = result.Succeeded;
 

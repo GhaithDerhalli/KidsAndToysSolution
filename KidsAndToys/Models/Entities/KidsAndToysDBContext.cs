@@ -138,7 +138,7 @@ namespace KidsAndToys.Models.Entities
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Products__UserId__4BAC3F29");
+                    .HasConstraintName("FK__Products__UserId__3D5E1FD2");
             });
 
             modelBuilder.Entity<User>(entity =>
