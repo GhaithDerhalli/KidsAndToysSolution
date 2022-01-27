@@ -29,19 +29,18 @@ namespace KidsAndToys.Models
         }
         public async Task<string> TryRegisterAsync(CreateUserVM viewModel)
         {
-            var result = await userManager.CreateAsync(new IdentityUser
+            var identityUser = new IdentityUser
             {
                 UserName = viewModel.Username,
                 Email = viewModel.Epost,
                 PhoneNumber = viewModel.PhoneNumber,
-            }, viewModel.Password);
+            };
+            var result = await userManager.CreateAsync(identityUser, viewModel.Password);
             bool createSucceeded = result.Succeeded;
 
             var query = kidsAndToysDBContext.Users.Add( new User
             {
-                UserName = viewModel.Username,
-                Epost = viewModel.Epost,
-                PhoneNumber = viewModel.PhoneNumber,
+                Id = identityUser.Id,
                 ZipCode = viewModel.ZipCode,
                 Address = viewModel.Address,
                 City = viewModel.City

@@ -61,9 +61,9 @@ namespace KidsAndToys.Models
                 .Add(new Product
                 {
                     ProductName = viewModel.ProductName,
-                    //Category = viewModel.Category,
-                    //Age = viewModel.Age,
-                    //Condition = viewModel.ConditionValue,
+                    CategoryId = viewModel.CategoryValue,
+                    AgeId = viewModel.AgeValue,
+                    ConditionId = viewModel.ConditionValue,
                     ConditionDescription = viewModel.ConditionDescription,
                     Price = viewModel.Price,
                     Description = viewModel.Description,

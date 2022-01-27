@@ -110,16 +110,8 @@ namespace KidsAndToys.Models.Entities
 
             modelBuilder.Entity<Product>(entity =>
             {
-                entity.Property(e => e.Category)
-                    .HasMaxLength(30)
-                    .IsUnicode(false);
-
                 entity.Property(e => e.City)
                     .HasMaxLength(1)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Condition)
-                    .HasMaxLength(30)
                     .IsUnicode(false);
 
                 entity.Property(e => e.ConditionDescription).IsUnicode(false);
@@ -134,11 +126,13 @@ namespace KidsAndToys.Models.Entities
                     .HasMaxLength(30)
                     .IsUnicode(false);
 
+                entity.Property(e => e.UserId).HasMaxLength(450);
+
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Products__UserId__3D5E1FD2");
+                    .HasConstraintName("FK__Products__UserId__5CD6CB2B");
             });
 
             modelBuilder.Entity<User>(entity =>
@@ -151,11 +145,11 @@ namespace KidsAndToys.Models.Entities
                     .HasMaxLength(30)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Epost).IsUnicode(false);
-
-                entity.Property(e => e.UserName)
-                    .HasMaxLength(30)
-                    .IsUnicode(false);
+                entity.HasOne(d => d.IdNavigation)
+                    .WithOne(p => p.User)
+                    .HasForeignKey<User>(d => d.Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Users__Id__59FA5E80");
             });
 
             OnModelCreatingPartial(modelBuilder);
