@@ -16,7 +16,7 @@ namespace KidsAndToys.Models.Entities
         public string? Description { get; set; }
         public int CityId { get; set; }
 
-        public virtual User User { get; set; } = null!;
         public virtual Age Age { get; set; } = null!;
+        public virtual User User { get; set; } = null!;
     }
 }

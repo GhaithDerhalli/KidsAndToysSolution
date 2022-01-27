@@ -5,9 +5,14 @@ namespace KidsAndToys.Models.Entities
 {
     public partial class Age
     {
-        public int Id { get; set; }
-        public string Age { get; set; } = null!;
+        public Age()
+        {
+            Products = new HashSet<Product>();
+        }
 
-        public virtual Product IdNavigation { get; set; } = null!;
+        public int Id { get; set; }
+        public string Title { get; set; } = null!;
+
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

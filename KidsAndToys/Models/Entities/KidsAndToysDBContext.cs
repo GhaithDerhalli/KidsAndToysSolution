@@ -30,20 +30,10 @@ namespace KidsAndToys.Models.Entities
         {
             modelBuilder.Entity<Age>(entity =>
             {
-                entity.ToTable("Age");
-
-                entity.HasIndex(e => e.Age1, "UQ__Age__C6971A5113AC1121")
+                entity.HasIndex(e => e.Title, "UQ__tmp_ms_x__2CB664DC16F0239C")
                     .IsUnique();
 
                 entity.Property(e => e.Id).ValueGeneratedNever();
-
-                entity.Property(e => e.Age1).HasColumnName("Age");
-
-                entity.HasOne(d => d.IdNavigation)
-                    .WithOne(p => p.Age)
-                    .HasForeignKey<Age>(d => d.Id)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Age__Id__4316F928");
             });
 
             modelBuilder.Entity<AspNetRole>(entity =>
@@ -143,11 +133,17 @@ namespace KidsAndToys.Models.Entities
 
                 entity.Property(e => e.UserId).HasMaxLength(450);
 
+                entity.HasOne(d => d.Age)
+                    .WithMany(p => p.Products)
+                    .HasForeignKey(d => d.AgeId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Products__AgeId__6383C8BA");
+
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Products__UserId__403A8C7D");
+                    .HasConstraintName("FK__Products__UserId__5165187F");
             });
 
             modelBuilder.Entity<User>(entity =>
@@ -164,7 +160,7 @@ namespace KidsAndToys.Models.Entities
                     .WithOne(p => p.User)
                     .HasForeignKey<User>(d => d.Id)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Users__Id__3D5E1FD2");
+                    .HasConstraintName("FK__Users__Id__52593CB8");
             });
 
             OnModelCreatingPartial(modelBuilder);

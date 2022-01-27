@@ -69,7 +69,7 @@
     <Build Include="dbo\Tables\AspNetUserClaims.sql" />
     <Build Include="dbo\Tables\AspNetRoles.sql" />
     <Build Include="dbo\Tables\AspNetRoleClaims.sql" />
-    <Build Include="Age.sql" />
+    <Build Include="Ages.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="AgeScript.sql" />
