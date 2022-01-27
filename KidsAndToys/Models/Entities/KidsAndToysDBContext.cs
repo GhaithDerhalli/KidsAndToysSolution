@@ -32,23 +32,12 @@ namespace KidsAndToys.Models.Entities
             {
                 entity.ToTable("Age");
 
+                entity.HasIndex(e => e.Age1, "UQ__Age__C6971A5113AC1121")
+                    .IsUnique();
+
                 entity.Property(e => e.Id).ValueGeneratedNever();
 
-                entity.Property(e => e._03Mån)
-                    .HasMaxLength(1)
-                    .HasColumnName("0-3 Mån");
-
-                entity.Property(e => e._36Mån)
-                    .HasMaxLength(1)
-                    .HasColumnName("3-6 Mån");
-
-                entity.Property(e => e._69Mån)
-                    .HasMaxLength(1)
-                    .HasColumnName("6-9 Mån");
-
-                entity.Property(e => e._912Mån)
-                    .HasMaxLength(1)
-                    .HasColumnName("9-12 Mån");
+                entity.Property(e => e.Age1).HasColumnName("Age");
 
                 entity.HasOne(d => d.IdNavigation)
                     .WithOne(p => p.Age)

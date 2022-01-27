@@ -71,4 +71,7 @@
     <Build Include="dbo\Tables\AspNetRoleClaims.sql" />
     <Build Include="Age.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="AgeScript.sql" />
+  </ItemGroup>
 </Project>
