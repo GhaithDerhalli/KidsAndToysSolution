@@ -23,7 +23,9 @@ namespace KidsAndToys.Models
                     new SelectListItem { Value = "4", Text = "Accesoir" },
                     new SelectListItem { Value = "5", Text = "TV-Spel" }
                 },
+
                 Age = kidsAndToysDBContext.Ages
+                .OrderBy(x => x.Id)
                 .Select(x => new SelectListItem(
                     x.Title, x.Id.ToString()))
                 .ToArray(),
