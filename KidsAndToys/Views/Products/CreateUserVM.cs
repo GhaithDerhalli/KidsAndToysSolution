@@ -12,7 +12,7 @@ namespace KidsAndToys.Views.Products
         public string Epost { get; set; }
 
         [Required(ErrorMessage = "Enter a PhoneNumber")]
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         [Required(ErrorMessage = "Enter your ZipCode ")]
         public int ZipCode { get; set; }
