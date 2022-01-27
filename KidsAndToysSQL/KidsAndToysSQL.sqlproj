@@ -73,6 +73,6 @@
     <Build Include="Categories.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="AgeScript.sql" />
+    <None Include="Scripts.sql" />
   </ItemGroup>
 </Project>

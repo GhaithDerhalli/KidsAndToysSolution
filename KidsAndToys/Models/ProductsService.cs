@@ -15,14 +15,22 @@ namespace KidsAndToys.Models
         {
             return new NewAdsVM
             {
-                Category = new SelectListItem[]
-                {
-                    new SelectListItem { Value = "1", Text = "Kläder" },
-                    new SelectListItem { Value = "2", Text = "skor" },
-                    new SelectListItem { Value = "3", Text = "Leksaker" },
-                    new SelectListItem { Value = "4", Text = "Accesoir" },
-                    new SelectListItem { Value = "5", Text = "TV-Spel" }
-                },
+                //Category = new SelectListItem[]
+                //{
+                //    new SelectListItem { Value = "1", Text = "Kläder" },
+                //    new SelectListItem { Value = "2", Text = "skor" },
+                //    new SelectListItem { Value = "3", Text = "Leksaker" },
+                //    new SelectListItem { Value = "4", Text = "Accesoir" },
+                //    new SelectListItem { Value = "5", Text = "TV-Spel" }
+                //},
+
+                Category = kidsAndToysDBContext.Categories
+                .OrderBy(x => x.Id)
+                .Select(x => new SelectListItem(
+                    x.Title, x.Id.ToString()))
+                .ToArray(),
+
+
 
                 Age = kidsAndToysDBContext.Ages
                 .OrderBy(x => x.Id)
@@ -50,19 +58,30 @@ namespace KidsAndToys.Models
                 //    new SelectListItem{Value = "16", Text = "12 år"},
                 //    new SelectListItem{Value = "17", Text = "13 år"}
                 //},
-                 Condition = new SelectListItem[]
-                {
-                    new SelectListItem{Value = "1", Text = "Oanvänt"},
-                    new SelectListItem{Value = "2", Text = "Sparsamt använt"},
-                    new SelectListItem{Value = "3", Text = "använt"}
-                },
-                 City = new SelectListItem[]
-                {
-                    new SelectListItem{Value = "1", Text = "Stockholm"},
-                    new SelectListItem{Value = "2", Text = "Malmö"},
-                    new SelectListItem{Value = "3", Text = "Västerås"},
-                    new SelectListItem{Value = "4", Text = "Södertälje"}
-                }
+                Condition = kidsAndToysDBContext.Conditions
+                .OrderBy(x => x.Id)
+                .Select(x => new SelectListItem(
+                    x.Title, x.Id.ToString()))
+                .ToArray(),
+                //Condition = new SelectListItem[]
+                //{
+                //    new SelectListItem{Value = "1", Text = "Oanvänt"},
+                //    new SelectListItem{Value = "2", Text = "Sparsamt använt"},
+                //    new SelectListItem{Value = "3", Text = "använt"}
+                //},
+                City = kidsAndToysDBContext.Cities
+                .OrderBy(x => x.Id)
+                .Select(x => new SelectListItem(
+                    x.Title, x.Id.ToString()))
+                .ToArray(),
+
+                //City = new SelectListItem[]
+                //{
+                //    new SelectListItem{Value = "1", Text = "Stockholm"},
+                //    new SelectListItem{Value = "2", Text = "Malmö"},
+                //    new SelectListItem{Value = "3", Text = "Västerås"},
+                //    new SelectListItem{Value = "4", Text = "Södertälje"}
+                //}
             };
 
         }
