@@ -118,8 +118,8 @@ namespace KidsAndToys.Controllers
         [HttpGet]
         public IActionResult ListOfAds()
         {
-            return Content("lista av annonser");
-            //return View();
+            var model = productsService.GetAllProducts();
+            return View(model);
         }
 
         [Route("details")]

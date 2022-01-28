@@ -32,13 +32,15 @@ namespace KidsAndToys.Models
                 .ToArray();
         }
 
-        public MyAdsVM[] GetAllProducts()
+        public ListOfAdsVM[] GetAllProducts()
         {
             return kidsAndToysDBContext.Products
-                .Select(o => new MyAdsVM
+                .Select(o => new ListOfAdsVM
                 {
                     ProductName = o.ProductName,
                     Price = o.Price,
+                    Condition = o.Condition,
+                    City = o.City,
                 })
                 .ToArray();
         }
