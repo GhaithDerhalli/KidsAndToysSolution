@@ -18,6 +18,8 @@ namespace KidsAndToys.Models.Entities
 
         public virtual Age Age { get; set; } = null!;
         public virtual Category Category { get; set; } = null!;
+        public virtual City City { get; set; } = null!;
+        public virtual Condition Condition { get; set; } = null!;
         public virtual User User { get; set; } = null!;
     }
 }
