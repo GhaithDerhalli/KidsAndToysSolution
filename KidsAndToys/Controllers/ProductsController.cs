@@ -109,7 +109,7 @@ namespace KidsAndToys.Controllers
         [HttpGet]
         public IActionResult MyAds()
         {
-            var model = productsService.GetAllProducts();
+            var model = productsService.GetAllUserProducts();
             return View(model);
         }
 
