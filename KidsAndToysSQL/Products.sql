@@ -9,5 +9,6 @@
 	[ConditionDescription] varchar(MAX) NULL,
 	[Price] money NOT NULL,
 	[Description] varchar (Max) NULL,
-	[CityId] int NOT NULL REFERENCES Cities(Id)
+	[CityId] int NOT NULL REFERENCES Cities(Id),
+	[AdsPic] varchar(max) Not null
 )

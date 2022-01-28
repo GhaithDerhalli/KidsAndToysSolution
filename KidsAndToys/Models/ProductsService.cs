@@ -10,12 +10,14 @@ namespace KidsAndToys.Models
         KidsAndToysDBContext kidsAndToysDBContext;
         IHttpContextAccessor accessor;
         UserManager<IdentityUser> userManager;
+        IWebHostEnvironment webHostEnv;
 
-        public ProductsService(KidsAndToysDBContext kidsAndToysDBContext, IHttpContextAccessor accessor, UserManager<IdentityUser> userManager)
+        public ProductsService(KidsAndToysDBContext kidsAndToysDBContext, IHttpContextAccessor accessor, UserManager<IdentityUser> userManager, IWebHostEnvironment webHostEnv)
         {
             this.userManager = userManager;
             this.kidsAndToysDBContext = kidsAndToysDBContext;
             this.accessor = accessor;
+            this.webHostEnv = webHostEnv;
         }
 
         
@@ -52,7 +54,11 @@ namespace KidsAndToys.Models
 
         }
         internal void AddAd(NewAdsVM viewModel)
-        { 
+        {
+            var filePath = Path.Combine(webHostEnv.WebRootPath, "Uploads", viewModel.AdsPic.FileName);
+            // Save the file to disk
+            using var fileStream = new FileStream(filePath, FileMode.Create);
+            viewModel.AdsPic.CopyTo(fileStream);
 
             string userId = userManager.GetUserId(accessor.HttpContext.User);
 
@@ -67,8 +73,8 @@ namespace KidsAndToys.Models
                     ConditionDescription = viewModel.ConditionDescription,
                     Price = viewModel.Price,
                     Description = viewModel.Description,
-                    CityId = viewModel.CityValue
-
+                    CityId = viewModel.CityValue,
+                    AdsPic = viewModel.AdsPic.FileName
                 }) ;
             kidsAndToysDBContext.SaveChanges();
         }

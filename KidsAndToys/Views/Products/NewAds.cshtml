@@ -3,7 +3,7 @@
 
 
 <h3>Lägg till en annons </h3>
-<form asp-controller="Products" asp-action="NewAds">
+<form asp-controller="Products" asp-action="NewAds" enctype="multipart/form-data">
   
     <label asp-for="ProductName">Namn</label>
     <input asp-for="ProductName" />
@@ -42,6 +42,9 @@
     <select
     asp-for="CityValue" asp-items = "Model.City"></select>
     <span asp-validation-for="CityValue"></span>
+    <label asp-for="AdsPic"></label>
+    <input asp-for="AdsPic" />
+    <span asp-validation-for="AdsPic"></span>
     <br />
     <input type="submit" value="Skapa" />
     

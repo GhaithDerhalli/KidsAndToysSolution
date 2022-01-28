@@ -14,6 +14,7 @@ namespace KidsAndToys.Models.Entities
         public int ZipCode { get; set; }
         public string Address { get; set; } = null!;
         public string City { get; set; } = null!;
+        public string ProfilePic { get; set; } = null!;
 
         public virtual AspNetUser IdNavigation { get; set; } = null!;
         public virtual ICollection<Product> Products { get; set; }

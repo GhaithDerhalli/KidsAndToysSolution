@@ -16,7 +16,7 @@ namespace KidsAndToys.Views.Products
 
         [Display(Name = "Kategori")]
         public SelectListItem[]? Category { get; set; } = null!;
-        [Range(1, 5)]
+        [Range(1, 20)]
         public int CategoryValue { get; set; }
 
         [Display(Name = "Skick")]
@@ -34,5 +34,8 @@ namespace KidsAndToys.Views.Products
         public SelectListItem[]? City { get; set; }
         [Range(1,159)]
         public int CityValue { get; set; }
+        [Display(Name = "Bild på varan")]
+        [Required(ErrorMessage = "Attach a Picture")]
+        public IFormFile AdsPic { get; set; }
     }
 }

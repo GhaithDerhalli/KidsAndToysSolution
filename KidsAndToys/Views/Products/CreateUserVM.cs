@@ -34,8 +34,8 @@ namespace KidsAndToys.Views.Products
         public string PasswordRepeat { get; set; }
 
 
-        //[Display(Name = "Profil Bild")]
-        //[Required(ErrorMessage = "Attach a Picture")]
-        //public IFormFile ProfilePic { get; set; }
+        [Display(Name = "Profil Bild")]
+        [Required(ErrorMessage = "Attach a Picture")]
+        public IFormFile ProfilePic { get; set; }
     }
 }

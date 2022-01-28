@@ -11,14 +11,15 @@ namespace KidsAndToys.Models
         SignInManager<IdentityUser> signInManager;
         RoleManager<IdentityRole> roleManager;
         KidsAndToysDBContext kidsAndToysDBContext;
-
+        IWebHostEnvironment webHostEnv;
 
         public UsersService(
             IdentityDbContext identityDBContext,
             KidsAndToysDBContext kidsAndToysDBContext,
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
-            RoleManager<IdentityRole> roleManager
+            RoleManager<IdentityRole> roleManager,
+            IWebHostEnvironment webHostEnv
             )
         {
             identityDBContext.Database.EnsureCreated();
@@ -26,28 +27,39 @@ namespace KidsAndToys.Models
             this.signInManager = signInManager;
             this.roleManager = roleManager;
             this.kidsAndToysDBContext = kidsAndToysDBContext;
+            this.webHostEnv = webHostEnv;
         }
         public async Task<string> TryRegisterAsync(CreateUserVM viewModel)
         {
-            var identityUser = new IdentityUser
+           
+                var filePath = Path.Combine(webHostEnv.WebRootPath, "Uploads", viewModel.ProfilePic.FileName);
+                using var fileStream = new FileStream(filePath, FileMode.Create);
+                viewModel.ProfilePic.CopyTo(fileStream);
+                var identityUser = new IdentityUser
+                {
+                    UserName = viewModel.Username,
+                    Email = viewModel.Epost,
+                    PhoneNumber = viewModel.PhoneNumber,
+                };
+                var result = await userManager.CreateAsync(identityUser, viewModel.Password);
+                bool createSucceeded = result.Succeeded;
+            if (createSucceeded)
             {
-                UserName = viewModel.Username,
-                Email = viewModel.Epost,
-                PhoneNumber = viewModel.PhoneNumber,
-            };
-            var result = await userManager.CreateAsync(identityUser, viewModel.Password);
-            bool createSucceeded = result.Succeeded;
+                var query = kidsAndToysDBContext.Users.Add(new User
+                {
+                    Id = identityUser.Id,
+                    ZipCode = viewModel.ZipCode,
+                    Address = viewModel.Address,
+                    City = viewModel.City,
+                    ProfilePic = viewModel.ProfilePic.FileName
 
-            var query = kidsAndToysDBContext.Users.Add( new User
-            {
-                Id = identityUser.Id,
-                ZipCode = viewModel.ZipCode,
-                Address = viewModel.Address,
-                City = viewModel.City
-
-            });
-            kidsAndToysDBContext.SaveChanges();
-            return result.Errors.FirstOrDefault()?.Description;
+                });
+                kidsAndToysDBContext.SaveChanges();
+            }
+               
+                return result.Errors.FirstOrDefault()?.Description;
+           
+            
         }
 
         public async Task<bool> TryLoginAsync(LogInVM viewModel)

@@ -20,11 +20,26 @@ values
 
 insert into Categories(Id, Title)
 values
-('1', 'Kläder'),
-('2', 'Leksaker'),
-('3', 'Accesoir'),
-('4', 'Skor'),
-('5', 'TV-spel');
+('1', 'Jackor'),
+('2', 'Byxor'),
+('3', 'Tshirt'),
+('4', 'Tröja'),
+('5', 'Kjol'),
+('6', 'Klänning'),
+('7', 'Body'),
+('8', 'Shorts'),
+('9', 'Strumpor'),
+('10', 'Stövlar'),
+('11', 'Idrottskor'),
+('12', 'Sneakers'),
+('13', 'Babyskor'),
+('14', 'Leksaker'),
+('15', 'DataSpel'),
+('16', 'Brädspel'),
+('17', 'Accessoarer'),
+('18', 'Väskor'),
+('19', 'Vagnar'),
+('20', 'Övrigt');
 
 insert into Conditions(Id, Title)
 values
