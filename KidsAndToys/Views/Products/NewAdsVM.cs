@@ -32,7 +32,7 @@ namespace KidsAndToys.Views.Products
 
         [Display(Name = "Stad")]
         public SelectListItem[]? City { get; set; }
-        [Range(1,159)]
+        [Range(1,4)]
         public int CityValue { get; set; }
     }
 }

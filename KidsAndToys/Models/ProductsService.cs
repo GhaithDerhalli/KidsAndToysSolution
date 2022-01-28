@@ -48,7 +48,6 @@ namespace KidsAndToys.Models
             var query = kidsAndToysDBContext.Products
                 .Add(new Product
                 {
-                    UserId = viewModel.
                     ProductName = viewModel.ProductName,
                     CategoryId = viewModel.CategoryValue,
                     AgeId = viewModel.AgeValue,

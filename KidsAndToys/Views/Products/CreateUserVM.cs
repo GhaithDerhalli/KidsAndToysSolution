@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace KidsAndToys.Views.Products
 {
@@ -21,11 +20,13 @@ namespace KidsAndToys.Views.Products
         [Required(ErrorMessage = "Enter a Adress")]
         public string Address { get; set; }
 
+        [Required(ErrorMessage = "Enter a City")]
+        public string City { get; set; }
+
+
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Required(ErrorMessage = "Enter a City")]
-        public string City { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
