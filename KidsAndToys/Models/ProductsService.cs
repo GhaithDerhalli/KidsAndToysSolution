@@ -18,6 +18,16 @@ namespace KidsAndToys.Models
             this.accessor = accessor;
         }
 
+        public MyAdsVM[] GetAllProducts()
+        {
+            return kidsAndToysDBContext.Products
+                .Select(o => new MyAdsVM
+                {
+                    ProductName = o.ProductName,
+                    Price = o.Price,
+                })
+                .ToArray();
+        }
         
         public NewAdsVM GetDropDownLists()
         {

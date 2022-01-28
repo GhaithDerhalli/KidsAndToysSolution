@@ -109,8 +109,8 @@ namespace KidsAndToys.Controllers
         [HttpGet]
         public IActionResult MyAds()
         {
-            return Content("Mina annonser");
-            //return View();
+            var model = productsService.GetAllProducts();
+            return View(model);
         }
 
 

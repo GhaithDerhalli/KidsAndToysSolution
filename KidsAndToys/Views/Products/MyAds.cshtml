@@ -1,5 +1,10 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model MyAdsVM[]
+
+<h3>My Ads</h3>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item.ProductName @item.Price</li>
+    }
+</ul>
