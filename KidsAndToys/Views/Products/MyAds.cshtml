@@ -1,10 +1,12 @@
 ﻿@model MyAdsVM[]
 
-<h3>My Ads</h3>
+<h3>Mina annonser</h3>
 
 <ul>
     @foreach (var item in Model)
     {
         <li>@item.ProductName @item.Price</li>
+        <button>Redigera</button>
+        <button>Radera</button>
     }
 </ul>
