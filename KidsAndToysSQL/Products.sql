@@ -5,9 +5,9 @@
 	[ProductName] varchar (30) NOT NULL,
 	[AgeId] INT NOT NULL REFERENCES Ages(Id),
 	[CategoryId] int  NOT NULL REFERENCES Categories(Id),
-	[ConditionId]  int NOT NULL,
+	[ConditionId]  int NOT NULL REFERENCES Conditions(Id),
 	[ConditionDescription] varchar(MAX) NULL,
 	[Price] money NOT NULL,
-	[Description] varchar NULL,
-	[CityId] int NOT NULL
+	[Description] varchar (Max) NULL,
+	[CityId] int NOT NULL REFERENCES Cities(Id)
 )
