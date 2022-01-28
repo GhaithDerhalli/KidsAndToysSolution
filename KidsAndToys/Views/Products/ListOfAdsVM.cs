@@ -1,4 +1,5 @@
 ﻿using KidsAndToys.Models.Entities;
+using System.ComponentModel.DataAnnotations;
 
 namespace KidsAndToys.Views.Products
 {
@@ -9,5 +10,8 @@ namespace KidsAndToys.Views.Products
         public string Description { get; set; }
         public Condition Condition { get; set; }
         public City City { get; set; }
+        [Display(Name = "Bild på varan")]
+        [Required(ErrorMessage = "Attach a Picture")]
+        public IFormFile AdsPic { get; set; }
     }
 }
