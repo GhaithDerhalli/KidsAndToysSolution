@@ -8,6 +8,6 @@
 	[ConditionId]  int NOT NULL REFERENCES Conditions(Id),
 	[ConditionDescription] varchar(MAX) NULL,
 	[Price] money NOT NULL,
-	[Description] varchar NULL,
+	[Description] varchar (Max) NULL,
 	[CityId] int NOT NULL REFERENCES Cities(Id)
 )
