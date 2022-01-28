@@ -1,5 +1,6 @@
 ﻿using KidsAndToys.Models.Entities;
 using KidsAndToys.Views.Products;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace KidsAndToys.Models
@@ -7,10 +8,17 @@ namespace KidsAndToys.Models
     public class ProductsService
     {
         KidsAndToysDBContext kidsAndToysDBContext;
-        public ProductsService(KidsAndToysDBContext kidsAndToysDBContext)
+        IHttpContextAccessor accessor;
+        UserManager<IdentityUser> userManager;
+
+        public ProductsService(KidsAndToysDBContext kidsAndToysDBContext, IHttpContextAccessor accessor, UserManager<IdentityUser> userManager)
         {
+            this.userManager = userManager;
             this.kidsAndToysDBContext = kidsAndToysDBContext;
+            this.accessor = accessor;
         }
+
+        
         public NewAdsVM GetDropDownLists()
         {
             return new NewAdsVM
@@ -44,11 +52,14 @@ namespace KidsAndToys.Models
 
         }
         internal void AddAd(NewAdsVM viewModel)
-        {
+        { 
+
+            string userId = userManager.GetUserId(accessor.HttpContext.User);
+
             var query = kidsAndToysDBContext.Products
                 .Add(new Product
                 {
-                    UserId = viewModel.
+                    UserId = userId,
                     ProductName = viewModel.ProductName,
                     CategoryId = viewModel.CategoryValue,
                     AgeId = viewModel.AgeValue,
@@ -58,7 +69,7 @@ namespace KidsAndToys.Models
                     Description = viewModel.Description,
                     CityId = viewModel.CityValue
 
-                });
+                }) ;
             kidsAndToysDBContext.SaveChanges();
         }
     }
