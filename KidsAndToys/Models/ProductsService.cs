@@ -20,7 +20,33 @@ namespace KidsAndToys.Models
             this.webHostEnv = webHostEnv;
         }
 
-        
+        public MyAdsVM[] GetAllUserProducts()
+        {
+            string userId = userManager.GetUserId(accessor.HttpContext.User);
+
+            return kidsAndToysDBContext.Products
+                .Where(o => o.UserId == userId) 
+                .Select(o => new MyAdsVM
+                {
+                    ProductName = o.ProductName,
+                    Price = o.Price,
+                })
+                .ToArray();
+        }
+
+        public ListOfAdsVM[] GetAllProducts()
+        {
+            return kidsAndToysDBContext.Products
+                .Select(o => new ListOfAdsVM
+                {
+                    ProductName = o.ProductName,
+                    Price = o.Price,
+                    Condition = o.Condition,
+                    City = o.City,
+                })
+                .ToArray();
+        }
+
         public NewAdsVM GetDropDownLists()
         {
             return new NewAdsVM

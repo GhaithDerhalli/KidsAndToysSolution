@@ -1,1 +1,10 @@
-﻿
+﻿@model ListOfAdsVM[]
+
+<h3>Lista av annonser</h3>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item.ProductName @item.Price @item.Condition.Title @item.City.Title</li>
+    }
+</ul>
