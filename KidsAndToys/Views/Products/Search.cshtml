@@ -1,15 +1,20 @@
 ﻿@model SearchVM
 <form asp-controller="Products" asp-action="Search">
-<label asp-for="category"></label>
-<input asp-for="category" />
+<label asp-for="SearchWord"></label>
+<input asp-for="SearchWord" />
 <input type="submit" value="Search" />
 </form>
 <ul>
     @if (Model != null)
     {
-        foreach (var item in @Model.Product)
+        foreach (var item in @Model.Products)
         {
-            <li> @item.ProductName </li> //- @item.Category - @item.City - @item.Price - @item.Condition
+            <li> @item.ProductName <img src="/uploads/@item.AdsString" /></li>
+            //- @item.Category - @item.City - @item.Price - @item.Condition
         }
+    }
+    else
+    {
+    <h3>No ads to show</h3>    
     }
 </ul>

@@ -110,16 +110,19 @@ namespace KidsAndToys.Models
             kidsAndToysDBContext.SaveChanges();
         }
 
-        internal SearchVM[] SearchProducts(string viewModel)
+        internal SearchVM SearchProducts(SearchVM viewModel)
         {
+            SearchVM searchVM = new SearchVM();
             var query = kidsAndToysDBContext.Products
-                .Where(p => viewModel == p.ProductName)//viewModel == p.Category.ToString() ||  || viewModel == p.Age.ToString() || viewModel == p.City.ToString()
-                .Select(p => new SearchVM
+                .Where(p => viewModel.SearchWord == p.ProductName)//viewModel == p.Category.ToString() ||  || viewModel == p.Age.ToString() || viewModel == p.City.ToString()
+                .Select(p => new NewAdsVM
                 {
-                    ProductName = p.ProductName
+                    ProductName = p.ProductName,
+                    AdsString = p.AdsPic
                 })
                 .ToArray();
-            return query;
+            searchVM.Products = query;
+            return searchVM;
 
         }
 

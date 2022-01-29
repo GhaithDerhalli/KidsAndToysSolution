@@ -142,7 +142,7 @@ namespace KidsAndToys.Controllers
         
         [Route("search")]
         [HttpPost]
-        public IActionResult Search(string viewModel)
+        public IActionResult Search(SearchVM viewModel)
         {
             var model = productsService.SearchProducts(viewModel);
             return View(model);
