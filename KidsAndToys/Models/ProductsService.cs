@@ -25,7 +25,7 @@ namespace KidsAndToys.Models
             string userId = userManager.GetUserId(accessor.HttpContext.User);
 
             return kidsAndToysDBContext.Products
-                .Where(o => o.UserId == userId) 
+                .Where(o => o.UserId == userId)
                 .Select(o => new MyAdsVM
                 {
                     ProductName = o.ProductName,
@@ -37,7 +37,7 @@ namespace KidsAndToys.Models
 
         public ListOfAdsVM[] GetAllProducts()
         {
-           
+
             return kidsAndToysDBContext.Products
                 .Select(o => new ListOfAdsVM
                 {
@@ -66,7 +66,7 @@ namespace KidsAndToys.Models
                 .Select(x => new SelectListItem(
                     x.Title, x.Id.ToString()))
                 .ToArray(),
-                
+
                 Condition = kidsAndToysDBContext.Conditions
                 .OrderBy(x => x.Id)
                 .Select(x => new SelectListItem(
@@ -104,7 +104,7 @@ namespace KidsAndToys.Models
                     Description = viewModel.Description,
                     CityId = viewModel.CityValue,
                     AdsPic = viewModel.AdsPic.FileName
-                }) ;
+                });
             kidsAndToysDBContext.SaveChanges();
         }
 
@@ -118,10 +118,25 @@ namespace KidsAndToys.Models
                 })
                 .ToArray();
             return query;
-                
-        }
-    }
 
+        }
+
+        public DetailsVM[] GetDetails()
+        {
+            return kidsAndToysDBContext.Products
+                .Select(o => new DetailsVM
+                {
+                    ProductName = o.ProductName,
+                    Age = o.Age,
+                    Description = o.Description,
+                    Price = o.Price,
+                    City = o.City,
+                    UserName = o.User
+                })
+                .ToArray();
+        }
+
+    }
 
 
 }

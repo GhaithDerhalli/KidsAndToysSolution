@@ -128,8 +128,8 @@ namespace KidsAndToys.Controllers
         [HttpGet]
         public IActionResult Details()
         {
-            return Content("details");
-            //return View();
+            var model = productsService.GetDetails();
+            return View(model);
         }
 
         [Route("search")]
