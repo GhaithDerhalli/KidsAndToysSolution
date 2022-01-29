@@ -1,0 +1,15 @@
+﻿@model SearchVM
+<form asp-controller="Products" asp-action="Search">
+<label asp-for="category"></label>
+<input asp-for="category" />
+<input type="submit" value="Search" />
+</form>
+<ul>
+    @if (Model != null)
+    {
+        foreach (var item in @Model.Product)
+        {
+            <li> @item.ProductName </li> //- @item.Category - @item.City - @item.Price - @item.Condition
+        }
+    }
+</ul>

@@ -132,6 +132,20 @@ namespace KidsAndToys.Controllers
             //return View();
         }
 
-
+        [Route("search")]
+        [HttpGet]
+        public IActionResult Search()
+        {
+            
+            return View();
+        }
+        
+        [Route("search")]
+        [HttpPost]
+        public IActionResult Search(string viewModel)
+        {
+            var model = productsService.SearchProducts(viewModel);
+            return View(model);
+        }
     }
 }

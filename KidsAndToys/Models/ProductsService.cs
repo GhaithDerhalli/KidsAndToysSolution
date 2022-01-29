@@ -106,6 +106,19 @@ namespace KidsAndToys.Models
                 }) ;
             kidsAndToysDBContext.SaveChanges();
         }
+
+        internal SearchVM[] SearchProducts(string viewModel)
+        {
+            var query = kidsAndToysDBContext.Products
+                .Where(p => viewModel == p.ProductName)//viewModel == p.Category.ToString() ||  || viewModel == p.Age.ToString() || viewModel == p.City.ToString()
+                .Select(p => new SearchVM
+                {
+                    ProductName = p.ProductName
+                })
+                .ToArray();
+            return query;
+                
+        }
     }
 
 
