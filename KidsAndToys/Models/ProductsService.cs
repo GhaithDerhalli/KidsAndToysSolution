@@ -114,7 +114,7 @@ namespace KidsAndToys.Models
         {
             SearchVM searchVM = new SearchVM();
             var query = kidsAndToysDBContext.Products
-                .Where(p => viewModel.SearchWord == p.ProductName)//viewModel == p.Category.ToString() ||  || viewModel == p.Age.ToString() || viewModel == p.City.ToString()
+                .Where(p => viewModel.SearchWord == p.ProductName || viewModel.SearchWord == p.Category.Title || viewModel.SearchWord == p.Age.Title || viewModel.SearchWord == p.City.Title)
                 .Select(p => new AddsInDataBase
                 {
                     ProductName = p.ProductName,
