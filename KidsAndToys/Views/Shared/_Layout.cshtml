@@ -7,6 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
     <title>@ViewBag.title</title>
+    <style>
+        footer {
+            text-align:center;
+            padding:3px;
+            background-color:white;
+            color:black;
+        }
+    </style>
 </head>
 <body>
     <a aspcontroller="Products" asp-action="Home"><h1>Kids N' Toys</h1></a>
@@ -33,10 +41,10 @@
         @RenderBody()
     </div>
     <footer>
-        <hr/>
-        <a asp-controller="Products" asp-action="Contact">Kontakt</a>
-        <a asp-controller="Products" asp-action="AboutUs">Om oss</a>
-        <a asp-controller="Products" asp-action="SecurityPolicy">Säkerhetspolicyn </a>
+        <hr />
+        <a asp-controller="Products" asp-action="Contact" style="float:left">Kontakt</a>
+        <a asp-controller="Products" asp-action="AboutUs" >Om oss</a>
+        <a asp-controller="Products" asp-action="SecurityPolicy"style="float:right">Säkerhetspolicyn </a>
     </footer>
 </body>
 
