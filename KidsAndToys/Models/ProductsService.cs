@@ -43,7 +43,7 @@ namespace KidsAndToys.Models
                     Price = o.Price,
                     Condition = o.Condition,
                     City = o.City,
-                    AdsPic = o.AdsPic
+                    //AdsPic = o.AdsPic
                 })
                 .ToArray();
         }
