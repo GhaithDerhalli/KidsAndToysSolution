@@ -30,6 +30,7 @@ namespace KidsAndToys.Models
                 {
                     ProductName = o.ProductName,
                     Price = o.Price,
+                    Picture = o.AdsPic
                 })
                 .ToArray();
         }
@@ -44,7 +45,7 @@ namespace KidsAndToys.Models
                     Price = o.Price,
                     Condition = o.Condition,
                     City = o.City,
-                    //AdsPic = o.AdsPic
+                    AdsPic = o.AdsPic
                 })
                 .ToArray();
         }
