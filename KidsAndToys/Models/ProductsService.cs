@@ -115,7 +115,7 @@ namespace KidsAndToys.Models
             SearchVM searchVM = new SearchVM();
             var query = kidsAndToysDBContext.Products
                 .Where(p => viewModel.SearchWord == p.ProductName)//viewModel == p.Category.ToString() ||  || viewModel == p.Age.ToString() || viewModel == p.City.ToString()
-                .Select(p => new NewAdsVM
+                .Select(p => new AddsInDataBase
                 {
                     ProductName = p.ProductName,
                     AdsString = p.AdsPic
@@ -126,7 +126,7 @@ namespace KidsAndToys.Models
 
         }
 
-        public DetailsVM GetDetails(int id)
+        public DetailsVM GetDetails(DetailsVM modelView)
         {
          
             return kidsAndToysDBContext.Products
@@ -140,10 +140,11 @@ namespace KidsAndToys.Models
                     Condition = o.Condition,
                     Price = o.Price,
                     City = o.City,
-                    
-                    
+                    UserName = o.User.UserName,
+                    Email = o.User.Email,
+                    AdsPic = o.AdsPic
                    
-                }).SingleOrDefault(x => x.Id == id);
+                }).Single(x => x.Id == modelView.Id);
 
 
         }

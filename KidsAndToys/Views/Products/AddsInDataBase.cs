@@ -3,8 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace KidsAndToys.Views.Products
 {
-    public class NewAdsVM
+    public class AddsInDataBase
     {
+        public string AdsString { get; set; }
 
         public string ProductName { get; set; }
 
@@ -22,7 +23,7 @@ namespace KidsAndToys.Views.Products
 
         [Display(Name = "Skick")]
         public SelectListItem[]? Condition { get; set; }
-        [Range(1,3)]
+        [Range(1, 3)]
         public int ConditionValue { get; set; }
 
         public string ConditionDescription { get; set; }
@@ -33,7 +34,7 @@ namespace KidsAndToys.Views.Products
 
         [Display(Name = "Stad")]
         public SelectListItem[]? City { get; set; }
-        [Range(1,159)]
+        [Range(1, 159)]
         public int CityValue { get; set; }
         [Display(Name = "Bild på varan")]
         [Required(ErrorMessage = "Attach a Picture")]
