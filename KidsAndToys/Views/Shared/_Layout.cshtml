@@ -9,9 +9,9 @@
     <title>@ViewBag.title</title>
 </head>
 <body>
-    <h1>Kids N' Toys</h1>
+    <a aspcontroller="Products" asp-action="Home"><h1>Kids N' Toys</h1></a>
     <nav>
-        <a asp-controller="Products" asp-action="Home">Handla</a>
+        <a asp-controller="Products" asp-action="ListOfAds">Handla</a>
         <a asp-controller="Products" asp-action="NewAds">Sälj</a>
         
         @if (User.Identity.IsAuthenticated)
