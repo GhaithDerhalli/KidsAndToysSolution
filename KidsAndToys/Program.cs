@@ -28,6 +28,7 @@ builder.Services.ConfigureApplicationCookie(
 builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
+app.UseStaticFiles();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/error/exception");

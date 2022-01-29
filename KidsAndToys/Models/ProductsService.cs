@@ -36,6 +36,7 @@ namespace KidsAndToys.Models
 
         public ListOfAdsVM[] GetAllProducts()
         {
+           
             return kidsAndToysDBContext.Products
                 .Select(o => new ListOfAdsVM
                 {
