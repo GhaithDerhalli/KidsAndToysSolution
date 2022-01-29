@@ -6,6 +6,6 @@
     @foreach (var item in Model)
     {
             
-        <li><a aspcontroller="Products" asp-action="Details">@item.ProductName</a> <br/> @item.Price kr <br/> @item.Condition.Title <br/> @item.City.Title <br/> <img src="/uploads/@item.AdsPic" /></li>
+        <li><a aspcontroller="Products" asp-action="Details" asp-route-id = "@item.Id">@item.ProductName</a> <br/> @item.Price kr <br/> @item.Condition.Title <br/> @item.City.Title <br/> <img src="/uploads/@item.AdsPic" /></li>
     }
 </ul>

@@ -33,7 +33,7 @@ namespace KidsAndToys.Models.Entities
         {
             modelBuilder.Entity<Age>(entity =>
             {
-                entity.HasIndex(e => e.Title, "UQ__tmp_ms_x__2CB664DC14476476")
+                entity.HasIndex(e => e.Title, "UQ__Ages__2CB664DC866A4791")
                     .IsUnique();
 
                 entity.Property(e => e.Id).ValueGeneratedNever();
@@ -122,7 +122,7 @@ namespace KidsAndToys.Models.Entities
 
             modelBuilder.Entity<Category>(entity =>
             {
-                entity.HasIndex(e => e.Title, "UQ__Categori__2CB664DC2CAEB6AA")
+                entity.HasIndex(e => e.Title, "UQ__Categori__2CB664DC6EED2C6D")
                     .IsUnique();
 
                 entity.Property(e => e.Id).ValueGeneratedNever();
@@ -130,7 +130,7 @@ namespace KidsAndToys.Models.Entities
 
             modelBuilder.Entity<City>(entity =>
             {
-                entity.HasIndex(e => e.Title, "UQ__Cities__2CB664DC496C9797")
+                entity.HasIndex(e => e.Title, "UQ__Cities__2CB664DC4A1BB6F2")
                     .IsUnique();
 
                 entity.Property(e => e.Id).ValueGeneratedNever();
@@ -138,7 +138,7 @@ namespace KidsAndToys.Models.Entities
 
             modelBuilder.Entity<Condition>(entity =>
             {
-                entity.HasIndex(e => e.Title, "UQ__Conditio__2CB664DC60F42EC5")
+                entity.HasIndex(e => e.Title, "UQ__Conditio__2CB664DCB8893EBA")
                     .IsUnique();
 
                 entity.Property(e => e.Id).ValueGeneratedNever();
@@ -164,31 +164,31 @@ namespace KidsAndToys.Models.Entities
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.AgeId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Products__AgeId__787EE5A0");
+                    .HasConstraintName("FK__Products__AgeId__46B27FE2");
 
                 entity.HasOne(d => d.Category)
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.CategoryId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Products__Catego__797309D9");
+                    .HasConstraintName("FK__Products__Catego__47A6A41B");
 
                 entity.HasOne(d => d.City)
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.CityId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Products__CityId__7B5B524B");
+                    .HasConstraintName("FK__Products__CityId__498EEC8D");
 
                 entity.HasOne(d => d.Condition)
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.ConditionId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Products__Condit__7A672E12");
+                    .HasConstraintName("FK__Products__Condit__489AC854");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Products__UserId__778AC167");
+                    .HasConstraintName("FK__Products__UserId__45BE5BA9");
             });
 
             modelBuilder.Entity<User>(entity =>
@@ -201,13 +201,17 @@ namespace KidsAndToys.Models.Entities
                     .HasMaxLength(30)
                     .IsUnicode(false);
 
+                entity.Property(e => e.Email).IsUnicode(false);
+
                 entity.Property(e => e.ProfilePic).IsUnicode(false);
+
+                entity.Property(e => e.UserName).IsUnicode(false);
 
                 entity.HasOne(d => d.IdNavigation)
                     .WithOne(p => p.User)
                     .HasForeignKey<User>(d => d.Id)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Users__Id__4F7CD00D");
+                    .HasConstraintName("FK__Users__Id__4A8310C6");
             });
 
             OnModelCreatingPartial(modelBuilder);

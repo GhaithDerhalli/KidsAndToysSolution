@@ -1,19 +1,18 @@
-﻿@model DetailsVM[]
+﻿@model DetailsVM
 
 <h3>Detaljer</h3>
 
-<ul>
-    @foreach (var item in Model)
-    {
-        <li>
-            <img src="/uploads/@item.AdsPic" /> <br/>
-            @item.ProductName <br/>
-            @item.Category <br/>
-            @item.City.Title <br/>
-            @item.Price kr <br/>
-            @item.Description <br/>
-            
-        </li>
+<h6>@Model.ProductName</h6>
+<h6>@Model.City.Title</h6>
+<h6>@Model.Age.Title</h6>
+<h6>@Model.Description</h6>
+<h6>@Model.Condition.Title</h6>
+<h6>@Model.ConditionDescription</h6>
+
+
+
+<h6>@Model.UserName</h6>
+<h6>@Model.Email</h6>
+<h6>@Model.PhoneNumber</h6>
     
-    }
-</ul>
+    

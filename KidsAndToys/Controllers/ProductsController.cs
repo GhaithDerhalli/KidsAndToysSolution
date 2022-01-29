@@ -126,9 +126,9 @@ namespace KidsAndToys.Controllers
 
         [Route("details")]
         [HttpGet]
-        public IActionResult Details()
+        public IActionResult Details(int Id)
         {
-            var model = productsService.GetDetails();
+            var model = productsService.GetDetails(Id);
             return View(model);
         }
 

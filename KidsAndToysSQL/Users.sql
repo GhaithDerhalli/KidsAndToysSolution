@@ -4,5 +4,7 @@
 	[ZipCode] int NOT NULL,
 	[Address] varchar(30) NOT NULL,
 	[City] varchar(30) NOT NULL,
-	[ProfilePic] varchar(max) NOT null
+	[ProfilePic] varchar(max) NOT null,
+	[UserName] varchar(max) Not Null,
+	[Email] varchar(Max) Not null
 )

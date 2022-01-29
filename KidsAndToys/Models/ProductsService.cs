@@ -41,6 +41,8 @@ namespace KidsAndToys.Models
             return kidsAndToysDBContext.Products
                 .Select(o => new ListOfAdsVM
                 {
+                    
+                    Id = o.Id,
                     ProductName = o.ProductName,
                     Price = o.Price,
                     Condition = o.Condition,
@@ -121,19 +123,26 @@ namespace KidsAndToys.Models
 
         }
 
-        public DetailsVM[] GetDetails()
+        public DetailsVM GetDetails(int id)
         {
+         
             return kidsAndToysDBContext.Products
                 .Select(o => new DetailsVM
                 {
+                    Id = o.Id,
                     ProductName = o.ProductName,
                     Age = o.Age,
                     Description = o.Description,
+                    ConditionDescription = o.ConditionDescription,
+                    Condition = o.Condition,
                     Price = o.Price,
                     City = o.City,
-                    UserName = o.User
-                })
-                .ToArray();
+                    
+                    
+                   
+                }).SingleOrDefault(x => x.Id == id);
+
+
         }
 
     }

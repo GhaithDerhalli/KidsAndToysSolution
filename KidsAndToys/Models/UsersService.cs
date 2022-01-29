@@ -40,6 +40,7 @@ namespace KidsAndToys.Models
                     UserName = viewModel.Username,
                     Email = viewModel.Epost,
                     PhoneNumber = viewModel.PhoneNumber,
+
                 };
                 var result = await userManager.CreateAsync(identityUser, viewModel.Password);
                 bool createSucceeded = result.Succeeded;
@@ -47,6 +48,8 @@ namespace KidsAndToys.Models
             {
                 var query = kidsAndToysDBContext.Users.Add(new User
                 {
+                    UserName = viewModel.Username,
+                    Email = viewModel.Epost,
                     Id = identityUser.Id,
                     ZipCode = viewModel.ZipCode,
                     Address = viewModel.Address,
