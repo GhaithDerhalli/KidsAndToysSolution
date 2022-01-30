@@ -21,13 +21,13 @@ namespace KidsAndToys.Controllers
         {
             return View();
         }
-        [Route("")]
-        [HttpGet]
-        public IActionResult Home(SearchVM viewModel)
-        {
-            //var model = productsService.ShowCategory(viewModel); 
-            return View();
-        }
+        //[Route("")]
+        //[HttpPost]
+        //public IActionResult Home(SearchVM viewModel)
+        //{
+        //    //var model = productsService.ShowCategory(viewModel); 
+        //    return View();
+        //}
         [Authorize]
         [Route("newads")]
         [HttpGet]
@@ -152,6 +152,13 @@ namespace KidsAndToys.Controllers
         public IActionResult Search(SearchVM viewModel)
         {
             var model = productsService.SearchProducts(viewModel);
+            return View(model);
+        }
+        [Route("search/{id}")]
+        [HttpGet]
+        public IActionResult Search(DetailsVM viewModel)
+        {
+            var model = productsService.GetDetails(viewModel);
             return View(model);
         }
     }

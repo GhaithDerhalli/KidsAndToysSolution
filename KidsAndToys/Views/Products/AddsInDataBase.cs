@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using KidsAndToys.Models.Entities;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
 namespace KidsAndToys.Views.Products
@@ -39,6 +40,7 @@ namespace KidsAndToys.Views.Products
         [Display(Name = "Bild på varan")]
         [Required(ErrorMessage = "Attach a Picture")]
         public IFormFile AdsPic { get; set; }
+        public int Id { get; }
 
     }
 }

@@ -9,7 +9,7 @@
     {
         foreach (var item in @Model.Products)
         {
-            <li> @item.ProductName <img src="/uploads/@item.AdsString" /></li>
+            <li> <a aspcontroller="Products" asp-action="Details" asp-route-id = "@item.Id">@item.ProductName</a> <img src="/uploads/@item.AdsString" /></li>
             //- @item.Category - @item.City - @item.Price - @item.Condition
         }
     }
