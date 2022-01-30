@@ -21,6 +21,13 @@ namespace KidsAndToys.Controllers
         {
             return View();
         }
+        [Route("")]
+        [HttpGet]
+        public IActionResult Home(SearchVM viewModel)
+        {
+            //var model = productsService.ShowCategory(viewModel); 
+            return View();
+        }
         [Authorize]
         [Route("newads")]
         [HttpGet]

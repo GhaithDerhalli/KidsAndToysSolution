@@ -11,7 +11,9 @@ namespace KidsAndToys.Models
         IHttpContextAccessor accessor;
         UserManager<IdentityUser> userManager;
         IWebHostEnvironment webHostEnv;
-
+        string[] clothes = ["Stövlar","Strumpor","Tröja","Tshirt", "Jackor","Kjol","Klänning","Byxor","Body"];
+        string[] games = ["Bredspel","Dataspel","Leksaker"];
+        string[] shoes = ["Babyskor","Idrottsskor","Sneakers","Stövlar"];
         public ProductsService(KidsAndToysDBContext kidsAndToysDBContext, IHttpContextAccessor accessor, UserManager<IdentityUser> userManager, IWebHostEnvironment webHostEnv)
         {
             this.userManager = userManager;
@@ -112,6 +114,7 @@ namespace KidsAndToys.Models
 
         internal SearchVM SearchProducts(SearchVM viewModel)
         {
+            
             SearchVM searchVM = new SearchVM();
             var query = kidsAndToysDBContext.Products
                 .Where(p => viewModel.SearchWord == p.ProductName || viewModel.SearchWord == p.Category.Title || viewModel.SearchWord == p.Age.Title || viewModel.SearchWord == p.City.Title)
