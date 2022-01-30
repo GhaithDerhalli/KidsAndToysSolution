@@ -12,8 +12,8 @@ namespace KidsAndToys.Controllers
         ProductsService productsService;
         public ProductsController(ProductsService productsService, UsersService usersService)
         {
-            this.productsService =  productsService;
-            this.usersService =  usersService;
+            this.productsService = productsService;
+            this.usersService = usersService;
         }
         [Route("")]
         [HttpGet]
@@ -102,9 +102,9 @@ namespace KidsAndToys.Controllers
             // Redirect user
             return RedirectToAction(nameof(Home));
         }
-       
+
         [Route("logout")]
-        [HttpGet]    
+        [HttpGet]
         public async Task<IActionResult> Logout()
         {
             await usersService.LogOutAsync();
@@ -143,10 +143,10 @@ namespace KidsAndToys.Controllers
         [HttpGet]
         public IActionResult Search()
         {
-            
+
             return View();
         }
-        
+
         [Route("search")]
         [HttpPost]
         public IActionResult Search(SearchVM viewModel)
@@ -161,5 +161,27 @@ namespace KidsAndToys.Controllers
             var model = productsService.GetDetails(viewModel);
             return View(model);
         }
+
+        [Route("contact")]
+        [HttpGet]
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        [Route("policy")]
+        [HttpGet]
+        public IActionResult Policy()
+        {
+            return View();
+        }
+
+        [Route("about")]
+        [HttpGet]
+        public IActionResult About()
+        {
+            return View();
+        }
+
     }
 }
