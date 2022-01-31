@@ -25,35 +25,35 @@ namespace KidsAndToys.Controllers
         [HttpGet]
         public IActionResult ClothesCategory()
         {
-            var viewModel = productsService.ShowCategory();
+            var viewModel = productsService.ShowClothesCategory();
             return View(viewModel);
         }
         [Route("shoes")]
         [HttpGet]
         public IActionResult ShoesCategory()
         {
-            var viewModel = productsService.ShowCategory();
+            var viewModel = productsService.ShowShoesCategory();
             return View(viewModel);
         }
         [Route("toys")]
         [HttpGet]
         public IActionResult ToysCategory()
         {
-            var viewModel = productsService.ShowCategory();
+            var viewModel = productsService.ShowToysCategory();
             return View(viewModel);
         }
         [Route("accessories")]
         [HttpGet]
         public IActionResult AccessoriesCategory()
         {
-            var viewModel = productsService.ShowCategory();
+            var viewModel = productsService.ShowAccessoriesCategory();
             return View(viewModel);
         }
         [Route("others")]
         [HttpGet]
         public IActionResult OtherCategory()
         {
-            var viewModel = productsService.ShowCategory();
+            var viewModel = productsService.ShowOtherCategory();
             return View(viewModel);
         }
         [Authorize]

@@ -21,8 +21,69 @@ namespace KidsAndToys.Models
             this.accessor = accessor;
             this.webHostEnv = webHostEnv;
         }
+        internal ListOfAdsVM[] ShowOtherCategory()
+        {
+            return kidsAndToysDBContext.Products
+                .Where(o => o.MainCategory.Title == "övrigt")
+               .Select(o => new ListOfAdsVM
+               {
+                   Id = o.Id,
+                   ProductName = o.ProductName,
+                   Price = o.Price,
+                   Condition = o.Condition,
+                   City = o.City,
+                   AdsPic = o.AdsPic1
+               })
+               .ToArray();
+        }
+        internal ListOfAdsVM[] ShowAccessoriesCategory()
+        {
+            return kidsAndToysDBContext.Products
+                .Where(o => o.MainCategory.Title == "accessoarer")
+               .Select(o => new ListOfAdsVM
+               {
+                   Id = o.Id,
+                   ProductName = o.ProductName,
+                   Price = o.Price,
+                   Condition = o.Condition,
+                   City = o.City,
+                   AdsPic = o.AdsPic1
+               })
+               .ToArray();
+        }
+        internal ListOfAdsVM[] ShowToysCategory()
+        {
+            return kidsAndToysDBContext.Products
+                .Where(o => o.MainCategory.Title == "leksaker")
+               .Select(o => new ListOfAdsVM
+               {
+                   Id = o.Id,
+                   ProductName = o.ProductName,
+                   Price = o.Price,
+                   Condition = o.Condition,
+                   City = o.City,
+                   AdsPic = o.AdsPic1
+               })
+               .ToArray();
+        }
 
-        internal ListOfAdsVM[] ShowCategory()
+        internal ListOfAdsVM[] ShowShoesCategory()
+        {
+            return kidsAndToysDBContext.Products
+                .Where(o => o.MainCategory.Title == "skor")
+               .Select(o => new ListOfAdsVM
+               {
+                   Id = o.Id,
+                   ProductName = o.ProductName,
+                   Price = o.Price,
+                   Condition = o.Condition,
+                   City = o.City,
+                   AdsPic = o.AdsPic1
+               })
+               .ToArray();
+        }
+
+        internal ListOfAdsVM[] ShowClothesCategory()
         {
             return kidsAndToysDBContext.Products
                 .Where(o => o.MainCategory.Title == "kläder")
@@ -125,6 +186,7 @@ namespace KidsAndToys.Models
                 {
                     UserId = userId,
                     ProductName = viewModel.ProductName,
+                    MainCategoryId = viewModel.MainCategoryValue,
                     CategoryId = viewModel.CategoryValue,
                     AgeId = viewModel.AgeValue,
                     ConditionId = viewModel.ConditionValue,

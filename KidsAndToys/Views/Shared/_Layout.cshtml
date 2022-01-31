@@ -9,7 +9,7 @@
 	<title>@ViewBag.title</title>
 	<style>
 		footer {
-			text-align:center;
+			text-align:left;
 			padding:3px;
 			background-color:white;
 			color:black;
@@ -36,7 +36,6 @@
 
 		
 	</nav>
-	div
 	<hr/>
 	<div>
 		@RenderBody()
@@ -45,10 +44,11 @@
 		<hr />
 	   
 
-			<p style="float:left">Contact<br/>Email: kidsNtoy@kidsntoy.com <br /> Adress: Silverstigen 150, 150 56 Göteborg</p>
+			
 			<a asp-controller="Products" asp-action="About" >Om oss</a>
-			<a asp-controller="Products" asp-action="Policy"style="float:right">Säkerhetspolicyn </a>
-
+			<a asp-controller="Products" asp-action="Policy"style="">Säkerhetspolicyn </a>
+			<br>
+			<p style="float:left">Contact<br/>Email: kidsNtoy@kidsntoy.com <br /> Adress: Silverstigen 150, 150 56 Göteborg</p>
 	  
 	</footer>
 </body>
