@@ -9,6 +9,11 @@
     <input asp-for="ProductName" />
     <span asp-validation-for="ProductName"></span>
 
+    <label asp-for="MainCategory"></label>
+    <select
+    asp-for="MainCategoryValue" asp-items = "Model.MainCategory"></select>
+    <span asp-validation-for="MainCategoryValue"></span>
+
     <label asp-for="Category"></label>
     <select
     asp-for="CategoryValue" asp-items = "Model.Category"></select>

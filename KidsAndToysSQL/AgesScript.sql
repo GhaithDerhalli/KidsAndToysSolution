@@ -209,3 +209,12 @@ values
 ('157', 'Örnsköldsvik'),
 ('158', 'Östersund'),
 ('159', 'Östhammar');
+
+
+insert into MainCategories(Id, Title)
+values
+('1', 'Kläder'),
+('2', 'Skor'),
+('3', 'Leksaker'),
+('4', 'accessoarer'),
+('5', 'Övrigt')

@@ -22,6 +22,22 @@ namespace KidsAndToys.Models
             this.webHostEnv = webHostEnv;
         }
 
+        internal ListOfAdsVM[] ShowCategory()
+        {
+            return kidsAndToysDBContext.Products
+                .Where(o => o.MainCategory.Title == "kläder")
+               .Select(o => new ListOfAdsVM
+               {
+                   Id = o.Id,
+                   ProductName = o.ProductName,
+                   Price = o.Price,
+                   Condition = o.Condition,
+                   City = o.City,
+                   AdsPic = o.AdsPic1
+               })
+               .ToArray();
+        }
+
         public MyAdsVM[] GetAllUserProducts()
         {
             string userId = userManager.GetUserId(accessor.HttpContext.User);
@@ -58,6 +74,11 @@ namespace KidsAndToys.Models
         {
             return new NewAdsVM
             {
+                MainCategory = kidsAndToysDBContext.MainCategories
+                .OrderBy(x => x.Id)
+                .Select(x => new SelectListItem(
+                    x.Title, x.Id.ToString()))
+                .ToArray(),
 
                 Category = kidsAndToysDBContext.Categories
                 .OrderBy(x => x.Id)
@@ -122,18 +143,20 @@ namespace KidsAndToys.Models
         internal SearchVM SearchProducts(SearchVM viewModel)
         {
             
-            SearchVM searchVM = new SearchVM();
-            var query = kidsAndToysDBContext.Products
-                .Where(p => viewModel.SearchWord == p.ProductName || viewModel.SearchWord == p.Category.Title || viewModel.SearchWord == p.Age.Title || viewModel.SearchWord == p.City.Title)
-                .Select(p => new AddsInDataBase
-                {
-                    ProductName = p.ProductName,
-                    AdsString = p.AdsPic1,
-                    Id = p.Id
-                })
-                .ToArray();
-            searchVM.Products = query;
-            return searchVM;
+                SearchVM searchVM = new SearchVM();
+                var query = kidsAndToysDBContext.Products
+                    .Where(p => viewModel.SearchWord == p.ProductName || viewModel.SearchWord == p.Category.Title || viewModel.SearchWord == p.Age.Title || viewModel.SearchWord == p.City.Title || viewModel.SearchWord == p.MainCategory.Title)
+                    .Select(p => new AddsInDataBase
+                    {
+                        ProductName = p.ProductName,
+                        AdsString = p.AdsPic1,
+                        Id = p.Id
+                    })
+                    .ToArray();
+                searchVM.Products = query;
+                return searchVM;
+            
+            
 
         }
 

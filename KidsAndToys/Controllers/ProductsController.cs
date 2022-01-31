@@ -21,13 +21,41 @@ namespace KidsAndToys.Controllers
         {
             return View();
         }
-        //[Route("")]
-        //[HttpPost]
-        //public IActionResult Home(SearchVM viewModel)
-        //{
-        //    //var model = productsService.ShowCategory(viewModel); 
-        //    return View();
-        //}
+        [Route("clothes")]
+        [HttpGet]
+        public IActionResult ClothesCategory()
+        {
+            var viewModel = productsService.ShowCategory();
+            return View(viewModel);
+        }
+        [Route("shoes")]
+        [HttpGet]
+        public IActionResult ShoesCategory()
+        {
+            var viewModel = productsService.ShowCategory();
+            return View(viewModel);
+        }
+        [Route("toys")]
+        [HttpGet]
+        public IActionResult ToysCategory()
+        {
+            var viewModel = productsService.ShowCategory();
+            return View(viewModel);
+        }
+        [Route("accessories")]
+        [HttpGet]
+        public IActionResult AccessoriesCategory()
+        {
+            var viewModel = productsService.ShowCategory();
+            return View(viewModel);
+        }
+        [Route("others")]
+        [HttpGet]
+        public IActionResult OtherCategory()
+        {
+            var viewModel = productsService.ShowCategory();
+            return View(viewModel);
+        }
         [Authorize]
         [Route("newads")]
         [HttpGet]
