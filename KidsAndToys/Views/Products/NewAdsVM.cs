@@ -40,7 +40,7 @@ namespace KidsAndToys.Views.Products
         [Range(1,159)]
         public int CityValue { get; set; }
         [Display(Name = "Bild på varan")]
-        [Required(ErrorMessage = "Attach a Picture")]
+        [Required(ErrorMessage = "Vänligen bifoga bild")]
         public IFormFile AdsPic1 { get; set; }
 
         [Display(Name = "Bild 2")]

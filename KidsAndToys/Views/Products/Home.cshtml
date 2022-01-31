@@ -1,10 +1,67 @@
 ﻿@model HomeVM[]
+<style>
+h1 {text-align: center;}
+
+.image-cropper {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+img {
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
+
+</style>
+<h1><b>Kids N' Toys</b></h1>
  @Html.Partial("Search")
         
         <hr/>
-        <a asp-controller="Products" asp-action="ClothesCategory" >Kläder</a>
+
+        <a href="@Url.Action("ClothesCategory", "Products", null)" style="text-decoration: none;">
+        <div class="image-cropper">
+        <img src="/uploads/tips-for-washing-baby-clothes.jpg" class="rounded" style="vertical-align: middle; width: 80px;"> 
+        </div>
+        <p>Kläder</p>
+        </a>
+     
+        <a href="@Url.Action("ShoesCategory", "Products", null)" style="text-decoration: none;">
+        <div class="image-cropper">
+        <img src="/uploads/12e9b65a-fbdc-4356-871b-5dd06e2f4e1d_1.d050ea49fa7d29a5993c4de87fea099d.jpeg" style="vertical-align: middle; width: 80px;"> 
+        </div>
+        <p>Skor</p>
+        </a>
+
+        <a href="@Url.Action("ToysCategory", "Products", null)" style="text-decoration: none;">
+        <div class="image-cropper">
+        <img src="/uploads/babyleksaker.jpg" style="vertical-align: middle; width: 80px;"> 
+        </div>
+        <p>Leksaker</p>
+        </a>
+
+        <a href="@Url.Action("AccessoriesCategory", "Products", null)" style="text-decoration: none;">
+        <div class="image-cropper">
+        <img src="/uploads/depositphotos_35414583-stock-illustration-baby-accessories-icons.jpg" style="vertical-align: middle; width: 80px;"> 
+        </div>
+        <p>Accessoarer</p>
+        </a>
+
+        <a href="@Url.Action("OtherCategory", "Products", null)" style="text-decoration: none;">
+        <div class="image-cropper">
+        <img src="/uploads/babysaker-i-korgar-och-teddy-björnleksak-på-bordet-babykläder-vårdsprodukter-är-björn-leksak-träbord-hemma-175507080.jpg" style="vertical-align: middle; width: 80px;"> 
+        </div>
+        <p>Övrigt</p>
+        </a>
+
+        @*<a asp-controller="Products" asp-action="ClothesCategory" >Kläder</a>
         <a asp-controller="Products" asp-action="ShoesCategory">Skor</a>
         <a asp-controller="Products" asp-action="ToysCategory">Leksaker</a>
         <a asp-controller="Products" asp-action="AccessoriesCategory">Accessoarer</a>
-        <a asp-controller="Products" asp-action="OtherCategory">Övrigt</a>
+        <a asp-controller="Products" asp-action="OtherCategory">Övrigt</a>*@
    
+        
