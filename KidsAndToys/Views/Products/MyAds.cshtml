@@ -5,7 +5,7 @@
 <ul>
     @foreach (var item in Model)
     {
-        <li>@item.ProductName <br/>@item.Price kr <br/> <img src="/uploads/@item.Picture" /></li>
+        <li>@item.ProductName <br/>@item.Price kr <br/> <span style="float:right"><img src="/uploads/@item.Picture"/></span></li>
         <button>Redigera</button>
         <button>Radera</button>
     }
