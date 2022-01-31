@@ -8,30 +8,47 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
 	<title>@ViewBag.title</title>
 	<style>
+		  body {
+            color: black;
+            font-family: 'Bahnschrift';
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 		footer {
 			text-align:left;
 			padding:3px;
 			background-color:white;
 			color:black;
+			flex-direction: column;
+            justify-content: center;
+            align-items: center;
 		}
+		 .navstyle {
+            border: solid White 1px;
+            border-radius: 5px;
+            margin: 0 4px;
+            padding: 4px;
+        }
 	</style>
 </head>
 <body>
-	<a aspcontroller="Products" asp-action="Home"><h1>Kids N' Toys</h1></a>
+	<a aspcontroller="Products" asp-action="Home" class = "navstyle"><h1>Kids N' Toys</h1></a>
 	<nav>
-		<a asp-controller="Products" asp-action="ListOfAds">Handla</a>
-		<a asp-controller="Products" asp-action="NewAds">Sälj</a>
+		<a asp-controller="Products" asp-action="ListOfAds" class = "navstyle">Handla</a>
+		<a asp-controller="Products" asp-action="NewAds" class = "navstyle">Sälj</a>
 		
 		@if (User.Identity.IsAuthenticated)
 		{
-			<a asp-controller="Products" asp-action="MyAds">Mina annons</a>
-			<a asp-controller="Products" asp-action="Logout">Logga ut</a>
+			<a asp-controller="Products" asp-action="MyAds" class = "navstyle">Mina annons</a>
+			<a asp-controller="Products" asp-action="Logout" class = "navstyle">Logga ut</a>
 		}
 		else
 		{
 
-			<a asp-controller="Products" asp-action="LogIn">Logga in</a>
-			<a asp-controller="Products" asp-action="CreateUser">Skapa ett konto</a>
+			<a asp-controller="Products" asp-action="LogIn" class = "navstyle">Logga in</a>
+			<a asp-controller="Products" asp-action="CreateUser" class = "navstyle">Skapa ett konto</a>
 		}
 
 		
