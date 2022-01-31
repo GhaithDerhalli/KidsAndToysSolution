@@ -19,4 +19,8 @@
     <Folder Include="wwwroot\uploads\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\Css\StyleSheet.css" />
+  </ItemGroup>
+
 </Project>
