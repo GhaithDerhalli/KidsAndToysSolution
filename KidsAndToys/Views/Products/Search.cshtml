@@ -7,7 +7,7 @@
 <ul>
     @if (Model != null)
     {
-        foreach (var item in @Model.Products)
+        foreach (var item in Model.Products)
         {
             <li> <a aspcontroller="Products" asp-action="Details" asp-route-id ="@item.Id">@item.ProductName</a> <img src="/uploads/@item.AdsString" /></li>
             //- @item.Category - @item.City - @item.Price - @item.Condition

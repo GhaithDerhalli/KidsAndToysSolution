@@ -128,13 +128,16 @@ namespace KidsAndToys.Models
                 .Select(p => new AddsInDataBase
                 {
                     ProductName = p.ProductName,
-                    AdsString = p.AdsPic1
+                    AdsString = p.AdsPic1,
+                    Id = p.Id
                 })
                 .ToArray();
             searchVM.Products = query;
             return searchVM;
 
         }
+
+        
 
         public DetailsVM GetDetails(DetailsVM modelView)
         {

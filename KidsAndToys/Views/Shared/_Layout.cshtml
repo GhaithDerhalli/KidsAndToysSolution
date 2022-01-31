@@ -2,54 +2,54 @@
 <!DOCTYPE html>
 <html lang="se">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
-    <title>@ViewBag.title</title>
-    <style>
-        footer {
-            text-align:center;
-            padding:3px;
-            background-color:white;
-            color:black;
-        }
-    </style>
+	<title>@ViewBag.title</title>
+	<style>
+		footer {
+			text-align:center;
+			padding:3px;
+			background-color:white;
+			color:black;
+		}
+	</style>
 </head>
 <body>
-    <a aspcontroller="Products" asp-action="Home"><h1>Kids N' Toys</h1></a>
-    <nav>
-        <a asp-controller="Products" asp-action="ListOfAds">Handla</a>
-        <a asp-controller="Products" asp-action="NewAds">Sälj</a>
-        
-        @if (User.Identity.IsAuthenticated)
-        {
-            <a asp-controller="Products" asp-action="MyAds">Mina annons</a>
-            <a asp-controller="Products" asp-action="Logout">Logga ut</a>
-        }
-        else
-        {
+	<a aspcontroller="Products" asp-action="Home"><h1>Kids N' Toys</h1></a>
+	<nav>
+		<a asp-controller="Products" asp-action="ListOfAds">Handla</a>
+		<a asp-controller="Products" asp-action="NewAds">Sälj</a>
+		
+		@if (User.Identity.IsAuthenticated)
+		{
+			<a asp-controller="Products" asp-action="MyAds">Mina annons</a>
+			<a asp-controller="Products" asp-action="Logout">Logga ut</a>
+		}
+		else
+		{
 
-            <a asp-controller="Products" asp-action="LogIn">Logga in</a>
-            <a asp-controller="Products" asp-action="CreateUser">Skapa ett konto</a>
-        }
+			<a asp-controller="Products" asp-action="LogIn">Logga in</a>
+			<a asp-controller="Products" asp-action="CreateUser">Skapa ett konto</a>
+		}
 
-        
-    </nav>
-    <hr/>
-    <div>
-        @RenderBody()
-    </div>
-    <footer>
-        <hr />
-       
+		
+	</nav>
+	<hr/>
+	<div>
+		@RenderBody()
+	</div>
+	<footer>
+		<hr />
+	   
 
-            <p style="float:left">Contact<br/>Email: kidsNtoy@kidsntoy.com <br /> Adress: Silverstigen 150, 150 56 Göteborg</p>
-            <a asp-controller="Products" asp-action="About" >Om oss</a>
-            <a asp-controller="Products" asp-action="Policy"style="float:right">Säkerhetspolicyn </a>
+			<p style="float:left">Contact<br/>Email: kidsNtoy@kidsntoy.com <br /> Adress: Silverstigen 150, 150 56 Göteborg</p>
+			<a asp-controller="Products" asp-action="About" >Om oss</a>
+			<a asp-controller="Products" asp-action="Policy"style="float:right">Säkerhetspolicyn </a>
 
-      
-    </footer>
+	  
+	</footer>
 </body>
 
 </html>

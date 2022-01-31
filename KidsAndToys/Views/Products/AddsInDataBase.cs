@@ -40,7 +40,7 @@ namespace KidsAndToys.Views.Products
         [Display(Name = "Bild på varan")]
         [Required(ErrorMessage = "Attach a Picture")]
         public IFormFile AdsPic { get; set; }
-        public int Id { get; }
+        public int Id { get; set; }
         public Product Product { get; set; }
 
     }

@@ -161,13 +161,13 @@ namespace KidsAndToys.Controllers
             var model = productsService.SearchProducts(viewModel);
             return View(model);
         }
-        [Route("search/{id}")]
-        [HttpGet]
-        public IActionResult Search(DetailsVM viewModel)
-        {
-            var model = productsService.GetDetails(viewModel);
-            return View(model);
-        }
+        //[Route("search/{id}")]
+        //[HttpPost]
+        //public IActionResult DetailSearch(SearchVM viewModel)
+        //{
+        //    var model = productsService.GetDetailsSearch(viewModel);
+        //    return View(model);
+        //}
 
         [Route("contact")]
         [HttpGet]
