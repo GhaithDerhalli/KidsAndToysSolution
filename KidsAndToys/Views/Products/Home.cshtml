@@ -1,7 +1,6 @@
 ﻿@model HomeVM[]
- 
-        <input id="searchId"></input>
-        <input type="submit" value="Search" />
+ @Html.Partial("Search")
+        
         <hr/>
         <a asp-controller="Products" asp-action="ListOfAds">Kläder</a>
         <a asp-controller="Products" asp-action="ListOfAds">Skor</a>

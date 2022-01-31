@@ -130,8 +130,15 @@ namespace KidsAndToys.Controllers
             var model = productsService.GetAllProducts();
             return View(model);
         }
+        //[Route("listofads")]
+        //[HttpPost]
+        //public IActionResult ListOfAds(SearchVM viewModel)
+        //{
+        //    var model = productsService.SearchProducts(viewModel);
+        //    return View(model);
+        //}
 
-        [Route("details")]
+        [Route("details/{id}")]
         [HttpGet]
         public IActionResult Details(DetailsVM modelView)
         {

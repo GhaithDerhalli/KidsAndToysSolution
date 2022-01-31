@@ -10,5 +10,8 @@
 	[Price] money NOT NULL,
 	[Description] varchar (Max) NULL,
 	[CityId] int NOT NULL REFERENCES Cities(Id),
-	[AdsPic] varchar(max) Not null
+	[AdsPic1] varchar(max) Not null,
+	[AdsPic2] varchar(max) null,
+	[AdsPic3] varchar(max) null,
+	[AdsPic4] varchar(max) null
 )

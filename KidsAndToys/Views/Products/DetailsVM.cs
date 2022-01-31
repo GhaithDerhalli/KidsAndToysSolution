@@ -16,6 +16,9 @@ namespace KidsAndToys.Views.Products
         public string UserName { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
-        public string AdsPic { get; set; }
+        public string AdsPic1 { get; set; }
+        public string AdsPic2 { get; set; }
+        public string AdsPic3 { get; set; }
+        public string AdsPic4 { get; set; }
     }
 }

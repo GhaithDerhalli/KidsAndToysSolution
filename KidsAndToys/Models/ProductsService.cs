@@ -32,7 +32,7 @@ namespace KidsAndToys.Models
                 {
                     ProductName = o.ProductName,
                     Price = o.Price,
-                    Picture = o.AdsPic
+                    Picture = o.AdsPic1
                 })
                 .ToArray();
         }
@@ -49,7 +49,7 @@ namespace KidsAndToys.Models
                     Price = o.Price,
                     Condition = o.Condition,
                     City = o.City,
-                    AdsPic = o.AdsPic
+                    AdsPic = o.AdsPic1
                 })
                 .ToArray();
         }
@@ -88,10 +88,14 @@ namespace KidsAndToys.Models
         }
         internal void AddAd(NewAdsVM viewModel)
         {
-            var filePath = Path.Combine(webHostEnv.WebRootPath, "Uploads", viewModel.AdsPic.FileName);
+           
+                var filePath = Path.Combine(webHostEnv.WebRootPath, "Uploads", viewModel.AdsPic1.FileName);
+           
+            
             // Save the file to disk
             using var fileStream = new FileStream(filePath, FileMode.Create);
-            viewModel.AdsPic.CopyTo(fileStream);
+            viewModel.AdsPic1.CopyTo(fileStream);
+            
 
             string userId = userManager.GetUserId(accessor.HttpContext.User);
 
@@ -107,7 +111,10 @@ namespace KidsAndToys.Models
                     Price = viewModel.Price,
                     Description = viewModel.Description,
                     CityId = viewModel.CityValue,
-                    AdsPic = viewModel.AdsPic.FileName
+                    AdsPic1 = viewModel.AdsPic1.FileName,
+                    AdsPic2 = viewModel.AdsPic2.FileName,
+                    AdsPic3 = viewModel.AdsPic3.FileName,
+                    AdsPic4 = viewModel.AdsPic4.FileName
                 });
             kidsAndToysDBContext.SaveChanges();
         }
@@ -121,7 +128,7 @@ namespace KidsAndToys.Models
                 .Select(p => new AddsInDataBase
                 {
                     ProductName = p.ProductName,
-                    AdsString = p.AdsPic
+                    AdsString = p.AdsPic1
                 })
                 .ToArray();
             searchVM.Products = query;
@@ -145,7 +152,10 @@ namespace KidsAndToys.Models
                     City = o.City,
                     UserName = o.User.UserName,
                     Email = o.User.Email,
-                    AdsPic = o.AdsPic
+                    AdsPic1 = o.AdsPic1,
+                    AdsPic2 = o.AdsPic2,
+                    AdsPic3 = o.AdsPic3,
+                    AdsPic4 = o.AdsPic4,
                    
                 }).Single(x => x.Id == modelView.Id);
 

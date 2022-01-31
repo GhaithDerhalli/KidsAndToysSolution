@@ -15,7 +15,10 @@ namespace KidsAndToys.Models.Entities
         public decimal Price { get; set; }
         public string? Description { get; set; }
         public int CityId { get; set; }
-        public string AdsPic { get; set; } = null!;
+        public string AdsPic1 { get; set; } = null!;
+        public string? AdsPic2 { get; set; }
+        public string? AdsPic3 { get; set; }
+        public string? AdsPic4 { get; set; }
 
         public virtual Age Age { get; set; } = null!;
         public virtual Category Category { get; set; } = null!;

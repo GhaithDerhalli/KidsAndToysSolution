@@ -37,7 +37,16 @@ namespace KidsAndToys.Views.Products
         public int CityValue { get; set; }
         [Display(Name = "Bild på varan")]
         [Required(ErrorMessage = "Attach a Picture")]
-        public IFormFile AdsPic { get; set; }
+        public IFormFile AdsPic1 { get; set; }
+
+        [Display(Name = "Bild 2")]
+        public IFormFile AdsPic2 { get; set; }
+
+        [Display(Name = "Bild 3")]
+        public IFormFile AdsPic3 { get; set; }
+
+        [Display(Name = "Bild 4")]
+        public IFormFile AdsPic4 { get; set; }
 
     }
 }
