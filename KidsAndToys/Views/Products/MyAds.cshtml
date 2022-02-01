@@ -1,7 +1,15 @@
 ﻿@model MyAdsVM[]
+@{
+    ViewData["Title"] = "Mina Annonser";
+
+}
+<head>
+    <link href="~/Css/StyleSheet.css" rel="stylesheet" type="text/css">
+</head>
 
 <h3>Mina annonser</h3>
 
+<div class=annons>
 <ul>
     @foreach (var item in Model)
     {
@@ -10,3 +18,4 @@
         <a aspcontroller="Products" asp-action="Delete" asp-route-id = "@item.Id">Radera</a>
     }
 </ul>
+</div> 

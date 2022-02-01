@@ -4,7 +4,7 @@ namespace KidsAndToys.Views.Products
 {
     public class LogInVM
     {
-        [Required(ErrorMessage = "Enter a Username")]
+        [Required(ErrorMessage = "Vänligen ange ett användarnamn")]
         public string Username { get; set; }
 
         [DataType(DataType.Password)]
