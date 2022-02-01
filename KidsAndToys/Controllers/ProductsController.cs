@@ -146,6 +146,7 @@ namespace KidsAndToys.Controllers
         [HttpGet]
         public IActionResult MyAds()
         {
+           
             var model = productsService.GetAllUserProducts();
             return View(model);
         }
@@ -194,15 +195,13 @@ namespace KidsAndToys.Controllers
         public IActionResult Search(SearchVM viewModel)
         {
             var model = productsService.SearchProducts(viewModel);
+            if (model == null)
+            {
+                return View();
+            }
             return View(model);
         }
-        //[Route("search/{id}")]
-        //[HttpPost]
-        //public IActionResult DetailSearch(SearchVM viewModel)
-        //{
-        //    var model = productsService.GetDetailsSearch(viewModel);
-        //    return View(model);
-        //}
+        
 
         [Route("contact")]
         [HttpGet]

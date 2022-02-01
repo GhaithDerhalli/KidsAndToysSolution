@@ -10,13 +10,24 @@
 <h3>Mina annonser</h3>
 
 <div class=annons>
-<ul>
-    @foreach (var item in Model)
+    
+    <ul>
+    
+         @foreach (var item in Model)
     {
-        <li>@item.ProductName <br/>@item.Price kr <br/> <img src="/uploads/@item.Picture" /></li>
-        <button>Redigera</button>
+        <li>@item.ProductName <br/>@item.Price kr <br/> <img src="/uploads/@item.Picture" /><button>Redigera</button>
+        <button><a aspcontroller="Products" asp-action="Delete" asp-route-id = "@item.Id">Radera</a></button></li>
         
-        <button><a aspcontroller="Products" asp-action="Delete" asp-route-id = "@item.Id">Radera</a></button>
     }
-</ul>
+    @if (Model.Length == 0)
+        {
+            <h4>Du har inga annonser.</h4>
+        }
+     </ul>
+    
+    
+   
+    
+    
+
 </div> 

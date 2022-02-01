@@ -12,9 +12,10 @@
             <li> <a aspcontroller="Products" asp-action="Details" asp-route-id ="@item.Id">@item.ProductName</a> <img src="/uploads/@item.AdsString" /></li>
             //- @item.Category - @item.City - @item.Price - @item.Condition
         }
+        if (Model.Products.Length == 0)
+        {
+             <h3>Din sökning angav inga träffar.</h3>
+        }
     }
-    else
-    {
-    <h3>No ads to show</h3>    
-    }
+    
 </ul>
