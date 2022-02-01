@@ -18,14 +18,13 @@
         }
 
         footer {
-            text-align: left;
-            padding: 3px;
+            text-align: center;
+            padding: 0px;
             background-color: #b4e1d8;
             color: black;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            display: block;
+            width: 100%;
+            hight: 0px;
         }
 
         .navstyle {
@@ -33,21 +32,22 @@
             border-radius: 5px;
             margin: 0 4px;
             padding: 4px;
-            
         }
-		a{
-			color:black;
-		}
-		a:hover{
-			color:rgb(254, 227, 229);
-		}
-		
-	
+
+        a {
+            color: black;
+        }
+
+            a:hover {
+                color: rgb(254, 227, 229);
+            }
+
+
         .header {
             width: 100%;
             height: 80px;
-            display: block;
-            background-color:#b4e1d8;
+            display: flex;
+            background-color: #b4e1d8;
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -73,9 +73,11 @@
             justify-content: center;
             align-items: center;
         }
-        .logo h1{
 
-        }
+            .logo h1 {
+            }
+
+        
     </style>
 </head>
 <body>
@@ -83,25 +85,25 @@
         <div class="innerheader">
             <div class="logo">
                 <a aspcontroller="Products" asp-action="Home"><h1>Kids N' Toys</h1></a>
-            <nav>
+                <nav>
 
-                <a asp-controller="Products" asp-action="ListOfAds" class="navstyle">Handla</a>
-                <a asp-controller="Products" asp-action="NewAds" class="navstyle">Sälj</a>
+                    <a asp-controller="Products" asp-action="ListOfAds" class="navstyle">Handla</a>
+                    <a asp-controller="Products" asp-action="NewAds" class="navstyle">Sälj</a>
 
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <a asp-controller="Products" asp-action="MyAds" class="navstyle">Mina annons</a>
-                    <a asp-controller="Products" asp-action="Logout" class="navstyle">Logga ut</a>
-                }
-                else
-                {
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-controller="Products" asp-action="MyAds" class="navstyle">Mina annons</a>
+                        <a asp-controller="Products" asp-action="Logout" class="navstyle">Logga ut</a>
+                    }
+                    else
+                    {
 
-                    <a asp-controller="Products" asp-action="LogIn" class="navstyle">Logga in</a>
-                    <a asp-controller="Products" asp-action="CreateUser" class="navstyle">Skapa ett konto</a>
-                }
-                <hr />
+                        <a asp-controller="Products" asp-action="LogIn" class="navstyle">Logga in</a>
+                        <a asp-controller="Products" asp-action="CreateUser" class="navstyle">Skapa ett konto</a>
+                    }
+                    <hr />
 
-            </nav>
+                </nav>
             </div>
         </div>
     </div>
@@ -112,13 +114,18 @@
         @RenderBody()
     </div>
     <footer>
-        <hr />
+        <div >
+            <div >
+                <hr />
 
-        <a asp-controller="Products" asp-action="About">Om oss</a>
-        <a asp-controller="Products" asp-action="Policy" style="">Säkerhetspolicyn </a>
-        <br>
-        <p style="float:left">Contact<br />Email: kidsNtoy@kidsntoy.com <br /> Adress: Silverstigen 150, 150 56 Göteborg</p>
+                <a asp-controller="Products" asp-action="About">Om oss</a>
+                <a asp-controller="Products" asp-action="Policy" style="">Säkerhetspolicyn </a>
+                <br>
+                <p style="float:left">Contact<br />Email: kidsNtoy@kidsntoy.com <br /> Adress: Silverstigen 150, 150 56 Göteborg</p>
 
+
+            </div>
+        </div>
     </footer>
 </body>
 

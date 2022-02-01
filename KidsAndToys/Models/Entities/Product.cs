@@ -26,7 +26,7 @@ namespace KidsAndToys.Models.Entities
         public virtual Category Category { get; set; } = null!;
         public virtual City City { get; set; } = null!;
         public virtual Condition Condition { get; set; } = null!;
-        public virtual Gender? Gender { get; set; }
+        public virtual Gender Gender { get; set; } = null!;
         public virtual MainCategory MainCategory { get; set; } = null!;
         public virtual User User { get; set; } = null!;
     }
