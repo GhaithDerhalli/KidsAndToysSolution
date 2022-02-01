@@ -2,12 +2,18 @@
 <style>
 h1 {text-align: center;}
 
+.row {
+  display: flex;
+}
+
 .image-cropper {
   width: 80px;
   height: 80px;
   position: relative;
   overflow: hidden;
   border-radius: 50%;
+  flex: 33.33%;
+  padding: 5px;
 }
 
 img {
@@ -17,14 +23,24 @@ img {
   width: auto;
 }
 
+.List
+{
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 </style>
+<div class="List">
 <h1><b>Kids N' Toys</b></h1>
  @Html.Partial("Search")
         
         <hr/>
-
+        <div class="row">
         <a href="@Url.Action("ClothesCategory", "Products", null)" style="text-decoration: none;">
-        <div class="image-cropper">
+        <div class="image-cropper" >
         <img src="/uploads/tips-for-washing-baby-clothes.jpg" class="rounded" style="vertical-align: middle; width: 80px;"> 
         </div>
         <p>Kläder</p>
@@ -58,6 +74,8 @@ img {
         <p>Övrigt</p>
         </a>
 
+        </div>
+        </div>
         @*<a asp-controller="Products" asp-action="ClothesCategory" >Kläder</a>
         <a asp-controller="Products" asp-action="ShoesCategory">Skor</a>
         <a asp-controller="Products" asp-action="ToysCategory">Leksaker</a>
