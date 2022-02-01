@@ -74,6 +74,7 @@
     <Build Include="Conditions.sql" />
     <Build Include="Cities.sql" />
     <Build Include="MainCategories.sql" />
+    <Build Include="Gender.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="AgesScript.sql" />
