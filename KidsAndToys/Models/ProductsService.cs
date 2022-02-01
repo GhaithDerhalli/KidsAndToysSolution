@@ -2,6 +2,7 @@
 using KidsAndToys.Views.Products;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Linq;
 
 namespace KidsAndToys.Models
 {
@@ -107,6 +108,7 @@ namespace KidsAndToys.Models
                 .Where(o => o.UserId == userId)
                 .Select(o => new MyAdsVM
                 {
+                    Id=o.Id,
                     ProductName = o.ProductName,
                     Price = o.Price,
                     Picture = o.AdsPic1
@@ -129,6 +131,16 @@ namespace KidsAndToys.Models
                     AdsPic = o.AdsPic1
                 })
                 .ToArray();
+        }
+
+        internal void DeleteProduct(MyAdsVM viewModel)
+        {
+
+            var query = kidsAndToysDBContext.Products
+                .Where(x => x.Id == viewModel.Id)
+                .Single();
+            kidsAndToysDBContext.Products.Remove(query);
+            kidsAndToysDBContext.SaveChanges();
         }
 
         public NewAdsVM GetDropDownLists()

@@ -5,6 +5,7 @@ namespace KidsAndToys.Views.Products
 {
     public class NewAdsVM
     {
+        public int Id { get;}
 
         public string ProductName { get; set; }
 

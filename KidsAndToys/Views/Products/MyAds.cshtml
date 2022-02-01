@@ -6,7 +6,7 @@
     @foreach (var item in Model)
     {
         <li>@item.ProductName <br/>@item.Price kr <br/> <img src="/uploads/@item.Picture" /></li>
-        <button>Redigera</button>
-        <button>Radera</button>
+        <button value="Delete" aspcontroller="Products" asp-action="Delete" asp-route-id = "@item.Id">Redigera</button>
+        <a aspcontroller="Products" asp-action="Delete" asp-route-id = "@item.Id">Radera</a>
     }
 </ul>

@@ -149,7 +149,14 @@ namespace KidsAndToys.Controllers
             var model = productsService.GetAllUserProducts();
             return View(model);
         }
-
+        [Authorize]
+        [Route("delete/{id}")]
+        [HttpGet]
+        public IActionResult Delete(MyAdsVM viewModel)
+        {
+            productsService.DeleteProduct(viewModel);
+            return RedirectToAction(nameof(MyAds));
+        }
 
         [Route("listofads")]
         [HttpGet]
