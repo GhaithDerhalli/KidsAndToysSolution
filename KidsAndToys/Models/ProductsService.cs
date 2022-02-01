@@ -207,9 +207,9 @@ namespace KidsAndToys.Models
                     Description = viewModel.Description,
                     CityId = viewModel.CityValue,
                     AdsPic1 = viewModel.AdsPic1.FileName,
-                    AdsPic2 = viewModel.AdsPic2.FileName,
-                    AdsPic3 = viewModel.AdsPic3.FileName,
-                    AdsPic4 = viewModel.AdsPic4.FileName
+                    AdsPic2 = viewModel.AdsPic2?.FileName,
+                    AdsPic3 = viewModel.AdsPic3?.FileName,
+                    AdsPic4 = viewModel.AdsPic4?.FileName
                 });
             kidsAndToysDBContext.SaveChanges();
         }

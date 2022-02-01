@@ -31,10 +31,13 @@ namespace KidsAndToys.Models
         }
         public async Task<string> TryRegisterAsync(CreateUserVM viewModel)
         {
-           
+            if (viewModel.ProfilePic != null)
+            {
                 var filePath = Path.Combine(webHostEnv.WebRootPath, "Uploads", viewModel.ProfilePic.FileName);
                 using var fileStream = new FileStream(filePath, FileMode.Create);
                 viewModel.ProfilePic.CopyTo(fileStream);
+            }
+                
                 var identityUser = new IdentityUser
                 {
                     UserName = viewModel.Username,
@@ -54,7 +57,7 @@ namespace KidsAndToys.Models
                     ZipCode = viewModel.ZipCode,
                     Address = viewModel.Address,
                     City = viewModel.City,
-                    ProfilePic = viewModel.ProfilePic.FileName
+                    ProfilePic = viewModel.ProfilePic?.FileName
 
                 });
                 kidsAndToysDBContext.SaveChanges();

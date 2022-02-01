@@ -40,18 +40,19 @@ namespace KidsAndToys.Views.Products
         public SelectListItem[]? City { get; set; }
         [Range(1,159)]
         public int CityValue { get; set; }
+
         [Display(Name = "Bild på varan")]
         [Required(ErrorMessage = "Vänligen bifoga bild")]
         public IFormFile AdsPic1 { get; set; }
 
         [Display(Name = "Bild 2")]
-        public IFormFile AdsPic2 { get; set; }
+        public IFormFile? AdsPic2 { get; set; }
 
         [Display(Name = "Bild 3")]
-        public IFormFile AdsPic3 { get; set; }
+        public IFormFile? AdsPic3 { get; set; }
 
         [Display(Name = "Bild 4")]
-        public IFormFile AdsPic4 { get; set; }
+        public IFormFile? AdsPic4 { get; set; }
 
     }
 }

@@ -35,7 +35,6 @@ namespace KidsAndToys.Views.Products
 
 
         [Display(Name = "Profil Bild")]
-        [Required(ErrorMessage = "Vänligen bifoga en bild")]
-        public IFormFile ProfilePic { get; set; }
+        public IFormFile? ProfilePic { get; set; }
     }
 }

@@ -14,8 +14,9 @@
     @foreach (var item in Model)
     {
         <li>@item.ProductName <br/>@item.Price kr <br/> <img src="/uploads/@item.Picture" /></li>
-        <button value="Delete" aspcontroller="Products" asp-action="Delete" asp-route-id = "@item.Id">Redigera</button>
-        <a aspcontroller="Products" asp-action="Delete" asp-route-id = "@item.Id">Radera</a>
+        <button>Redigera</button>
+        
+        <button><a aspcontroller="Products" asp-action="Delete" asp-route-id = "@item.Id">Radera</a></button>
     }
 </ul>
 </div> 
