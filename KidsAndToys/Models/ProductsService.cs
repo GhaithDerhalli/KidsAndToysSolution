@@ -147,6 +147,12 @@ namespace KidsAndToys.Models
         {
             return new NewAdsVM
             {
+                Gender = kidsAndToysDBContext.Genders
+                .OrderBy(x => x.Id)
+                .Select(x => new SelectListItem(
+                    x.Title, x.Id.ToString()))
+                .ToArray(),
+
                 MainCategory = kidsAndToysDBContext.MainCategories
                 .OrderBy(x => x.Id)
                 .Select(x => new SelectListItem(
@@ -201,6 +207,7 @@ namespace KidsAndToys.Models
                     MainCategoryId = viewModel.MainCategoryValue,
                     CategoryId = viewModel.CategoryValue,
                     AgeId = viewModel.AgeValue,
+                    GenderId = viewModel.GenderValue,
                     ConditionId = viewModel.ConditionValue,
                     ConditionDescription = viewModel.ConditionDescription,
                     Price = viewModel.Price,
@@ -219,7 +226,7 @@ namespace KidsAndToys.Models
             
                 SearchVM searchVM = new SearchVM();
                 var query = kidsAndToysDBContext.Products
-                    .Where(p => viewModel.SearchWord == p.ProductName || viewModel.SearchWord == p.Category.Title || viewModel.SearchWord == p.Age.Title || viewModel.SearchWord == p.City.Title || viewModel.SearchWord == p.MainCategory.Title)
+                    .Where(p => viewModel.SearchWord == p.ProductName || viewModel.SearchWord == p.Category.Title || viewModel.SearchWord == p.Age.Title || viewModel.SearchWord == p.City.Title || viewModel.SearchWord == p.MainCategory.Title || viewModel.SearchWord == p.Gender.Title)
                     .Select(p => new AddsInDataBase
                     {
                         ProductName = p.ProductName,

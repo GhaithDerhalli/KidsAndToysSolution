@@ -47,6 +47,15 @@ values
 ('2', 'Sparsamt Använd'),
 ('3', 'Använd');
 
+
+insert into Gender(Id, Title)
+values
+('1', 'Pojke'),
+('2', 'Flicka'),
+('3', 'Unisex');
+
+
+
 insert into Cities(Id, Title)
 values
 ('1', 'Alingsås'),

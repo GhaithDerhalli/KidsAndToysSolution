@@ -4,6 +4,7 @@
 	[UserId] nvarchar (450) NOT NULL References Users(Id),
 	[ProductName] varchar (30) NOT NULL,
 	[AgeId] INT NOT NULL REFERENCES Ages(Id),
+	[GenderId] INT NOt NULL References Gender(Id),
 	[MainCategoryId] int NOT NULL References MainCategories(Id),
 	[CategoryId] int  NOT NULL REFERENCES Categories(Id),
 	[ConditionId]  int NOT NULL REFERENCES Conditions(Id),

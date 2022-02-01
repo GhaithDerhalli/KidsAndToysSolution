@@ -26,6 +26,7 @@ namespace KidsAndToys.Models.Entities
         public virtual DbSet<Category> Categories { get; set; } = null!;
         public virtual DbSet<City> Cities { get; set; } = null!;
         public virtual DbSet<Condition> Conditions { get; set; } = null!;
+        public virtual DbSet<Gender> Genders { get; set; } = null!;
         public virtual DbSet<MainCategory> MainCategories { get; set; } = null!;
         public virtual DbSet<Product> Products { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
@@ -145,6 +146,16 @@ namespace KidsAndToys.Models.Entities
                 entity.Property(e => e.Id).ValueGeneratedNever();
             });
 
+            modelBuilder.Entity<Gender>(entity =>
+            {
+                entity.ToTable("Gender");
+
+                entity.HasIndex(e => e.Title, "UQ__Gender__2CB664DC83BA67D8")
+                    .IsUnique();
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
+            });
+
             modelBuilder.Entity<MainCategory>(entity =>
             {
                 entity.HasIndex(e => e.Title, "UQ__MainCate__2CB664DC033F1A52")
@@ -179,37 +190,42 @@ namespace KidsAndToys.Models.Entities
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.AgeId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Products__AgeId__662B2B3B");
+                    .HasConstraintName("FK__Products__AgeId__70A8B9AE");
 
                 entity.HasOne(d => d.Category)
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.CategoryId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Products__Catego__681373AD");
+                    .HasConstraintName("FK__Products__Catego__72910220");
 
                 entity.HasOne(d => d.City)
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.CityId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Products__CityId__69FBBC1F");
+                    .HasConstraintName("FK__Products__CityId__74794A92");
 
                 entity.HasOne(d => d.Condition)
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.ConditionId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Products__Condit__690797E6");
+                    .HasConstraintName("FK__Products__Condit__73852659");
+
+                entity.HasOne(d => d.Gender)
+                    .WithMany(p => p.Products)
+                    .HasForeignKey(d => d.GenderId)
+                    .HasConstraintName("FK__Products__Gender__756D6ECB");
 
                 entity.HasOne(d => d.MainCategory)
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.MainCategoryId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Products__MainCa__671F4F74");
+                    .HasConstraintName("FK__Products__MainCa__719CDDE7");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Products__UserId__65370702");
+                    .HasConstraintName("FK__Products__UserId__6FB49575");
             });
 
             modelBuilder.Entity<User>(entity =>
