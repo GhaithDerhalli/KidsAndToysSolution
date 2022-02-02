@@ -108,10 +108,12 @@ namespace KidsAndToys.Models
                 .Where(o => o.UserId == userId)
                 .Select(o => new MyAdsVM
                 {
-                    Id=o.Id,
+                    Id = o.Id,
                     ProductName = o.ProductName,
                     Price = o.Price,
-                    Picture = o.AdsPic1
+                    Condition = o.Condition,
+                    City = o.City,
+                    AdsPic = o.AdsPic1
                 })
                 .ToArray();
         }
