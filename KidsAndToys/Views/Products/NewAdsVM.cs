@@ -19,13 +19,13 @@ namespace KidsAndToys.Views.Products
         [Range(1, 3)]
         public int GenderValue { get; set; }
 
-        [Display(Name = "Main Kategori")]
+        [Display(Name = "Huvud Kategori")]
         public SelectListItem[]? MainCategory { get; set; } = null!;
         [Range(1, 5)]
         public int MainCategoryValue { get; set; }
 
 
-        [Display(Name = "Kategori")]
+        [Display(Name = "Under Kategori")]
         public SelectListItem[]? Category { get; set; } = null!;
         [Range(1, 20)]
         public int CategoryValue { get; set; }
