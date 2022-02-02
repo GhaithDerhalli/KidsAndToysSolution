@@ -233,7 +233,10 @@ namespace KidsAndToys.Models
                     {
                         ProductName = p.ProductName,
                         AdsString = p.AdsPic1,
-                        Id = p.Id
+                        Id = p.Id,
+                        Condition = p.Condition.Title,
+                        City = p.City.Title,
+                        Price = p.Price
                     })
                     .ToArray();
                 searchVM.Products = query;
