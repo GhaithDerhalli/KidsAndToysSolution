@@ -1,35 +1,55 @@
 ﻿@model DetailsVM
 
-<h3>Detaljer</h3>
+@{
+    ViewData["Title"] = "Detaljer";
 
-<h6>@Model.ProductName</h6>
-<h6>@Model.City.Title</h6>
-<h6>@Model.Age.Title</h6>
-<h6>@Model.Price kr</h6>
-<h6>@Model.Description</h6>
-<h6>@Model.Condition.Title</h6>
-<h6>@Model.ConditionDescription</h6>
-<img src="/uploads/@Model.AdsPic1" />
+}
+<head>
+    <link href="~/Css/StyleSheet.css" rel="stylesheet" type="text/css">
+</head>
+
+<h3><b>Detaljer</b></h3>
+
+<h6><b style= "font-size: 22px">@Model.ProductName</b></h6>
+
+
+<h6><b>Stad </b><br/>
+    @Model.City.Title</h6>
+<h6><b>Ålder </b><br/>
+    @Model.Age.Title</h6>
+<h6><b>Pris </b><br/>
+    @Model.Price kr</h6>
+<h6><b>Beskrivning </b><br/>
+    @Model.Description</h6>
+<h6><b>Skick </b><br/>
+    @Model.Condition.Title</h6>
+<h6><b>Detaljer </b><br/>
+    @Model.ConditionDescription</h6>
+
+
+<p><img src="/uploads/@Model.AdsPic1"/></p>
 
 @if (Model.AdsPic2 != null)
 {
-<img src="/uploads/@Model.AdsPic2" />
+<p><img src="/uploads/@Model.AdsPic2"/></p>
     
 }
 @if (Model.AdsPic3 != null)
 {
-<img src="/uploads/@Model.AdsPic3" />
+<p><img src="/uploads/@Model.AdsPic3"/></p>
     
 }@if (Model.AdsPic4 != null)
 {
-<img src="/uploads/@Model.AdsPic4" />
+<p><img src="/uploads/@Model.AdsPic4"/></p>
     
 }
 
-
-
-<h6>@Model.UserName</h6>
-<h6>@Model.Email</h6>
-<h6>@Model.PhoneNumber</h6>
+<h6><b style= "font-size: 22px">Säljare</b></h6>
+<h6><b>Namn </b><br/>
+    @Model.UserName</h6>
+<h6><b>Email </b><br/>
+    @Model.Email</h6>
+<h6><b>Telefonnummer </b><br/>
+    @Model.PhoneNumber</h6>
     
     
