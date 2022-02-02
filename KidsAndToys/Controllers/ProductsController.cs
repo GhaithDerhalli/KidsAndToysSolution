@@ -78,10 +78,6 @@ namespace KidsAndToys.Controllers
             return RedirectToAction(nameof(Home));
         }
 
-
-        
-
-
         [Authorize]
         [Route("myads")]
         [HttpGet]
@@ -137,26 +133,8 @@ namespace KidsAndToys.Controllers
         }
         
 
-        [Route("contact")]
-        [HttpGet]
-        public IActionResult Contact()
-        {
-            return View();
-        }
+      
 
-        [Route("policy")]
-        [HttpGet]
-        public IActionResult Policy()
-        {
-            return View();
-        }
-
-        [Route("about")]
-        [HttpGet]
-        public IActionResult About()
-        {
-            return View();
-        }
 
     }
 }
