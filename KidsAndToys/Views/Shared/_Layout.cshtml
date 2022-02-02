@@ -89,7 +89,7 @@
     <div class="header">
         <div class="innerheader">
             <div class="logo">
-                <a aspcontroller="Products" asp-action="Home"><h1>Kids N' Toys</h1></a>
+                <a asp-controller="Products" asp-action="Home"><h1>Kids N' Toys</h1></a>
                 <nav>
 
                     <a asp-controller="Products" asp-action="ListOfAds" class="navstyle">Handla</a>
@@ -98,13 +98,13 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <a asp-controller="Products" asp-action="MyAds" class="navstyle">Mina annons</a>
-                        <a asp-controller="Products" asp-action="Logout" class="navstyle">Logga ut</a>
+                        <a asp-controller="Users" asp-action="Logout" class="navstyle">Logga ut</a>
                     }
                     else
                     {
 
-                        <a asp-controller="Products" asp-action="LogIn" class="navstyle">Logga in</a>
-                        <a asp-controller="Products" asp-action="CreateUser" class="navstyle">Skapa ett konto</a>
+                        <a asp-controller="Users" asp-action="LogIn" class="navstyle">Logga in</a>
+                        <a asp-controller="Users" asp-action="CreateUser" class="navstyle">Skapa ett konto</a>
                     }
                     
 

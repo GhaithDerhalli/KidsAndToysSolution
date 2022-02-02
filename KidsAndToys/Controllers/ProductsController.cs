@@ -78,67 +78,8 @@ namespace KidsAndToys.Controllers
             return RedirectToAction(nameof(Home));
         }
 
-        [Route("createuser")]
-        [HttpGet]
-        public IActionResult CreateUser()
-        {
-            //return Content("new user");
-            return View();
-        }
-        [Route("createuser")]
-        [HttpPost]
-        public async Task<IActionResult> CreateUser(CreateUserVM viewModel)
-        {
-            if (!ModelState.IsValid)
-                return View(viewModel);
 
-            // Try to register user
-            var errorMessage = await usersService.TryRegisterAsync(viewModel);
-            if (errorMessage != null)
-            {
-                // Show error
-                ModelState.AddModelError(string.Empty, errorMessage);
-                return View(viewModel);
-            }
-
-            // Redirect user
-            return RedirectToAction(nameof(Login));
-        }
-        [Route("login")]
-        [HttpGet]
-        public IActionResult Login()
-        {
-            //return Content("login");
-            return View();
-        }
-        [HttpPost]
-        [Route("login")]
-        public async Task<IActionResult> LoginAsync(LogInVM viewModel)
-        {
-            if (!ModelState.IsValid)
-                return View(viewModel);
-
-            // Check if credentials is valid (and set auth cookie)
-            var success = await usersService.TryLoginAsync(viewModel);
-            if (!success)
-            {
-                // Show error
-                ModelState.AddModelError(nameof(LogInVM.Username), "Login failed");
-                return View(viewModel);
-            }
-
-            // Redirect user
-            return RedirectToAction(nameof(Home));
-        }
-
-        [Route("logout")]
-        [HttpGet]
-        public async Task<IActionResult> Logout()
-        {
-            await usersService.LogOutAsync();
-            return RedirectToAction(nameof(Login));
-
-        }
+        
 
 
         [Authorize]
@@ -166,14 +107,7 @@ namespace KidsAndToys.Controllers
             var model = productsService.GetAllProducts();
             return View(model);
         }
-        //[Route("listofads")]
-        //[HttpPost]
-        //public IActionResult ListOfAds(SearchVM viewModel)
-        //{
-        //    var model = productsService.SearchProducts(viewModel);
-        //    return View(model);
-        //}
-
+        
         [Route("details/{id}")]
         [HttpGet]
         public IActionResult Details(DetailsVM modelView)
