@@ -22,7 +22,7 @@ insert into Categories(Id, Title)
 values
 ('1', 'Jackor'),
 ('2', 'Byxor'),
-('3', 'Tshirt'),
+('3', 'T-shirt'),
 ('4', 'Tröja'),
 ('5', 'Kjol'),
 ('6', 'Klänning'),
@@ -44,7 +44,7 @@ values
 insert into Conditions(Id, Title)
 values
 ('1', 'Oanvänd'),
-('2', 'Sparsamt Använd'),
+('2', 'Sparsamt använd'),
 ('3', 'Använd');
 
 
@@ -99,7 +99,6 @@ values
 ('39', 'Huskvarna'),
 ('40', 'Härnösand'),
 ('41', 'Hässleholm'),
-
 ('42', 'Höganäs'),
 ('43', 'Järle'),
 ('44', 'Jönköping'),
@@ -225,5 +224,5 @@ values
 ('1', 'Kläder'),
 ('2', 'Skor'),
 ('3', 'Leksaker'),
-('4', 'accessoarer'),
+('4', 'Accessoarer'),
 ('5', 'Övrigt')

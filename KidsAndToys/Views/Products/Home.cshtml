@@ -1,39 +1,12 @@
 ﻿@model HomeVM[]
-<style>
-h1 {text-align: center;}
+@{
+    ViewData["Title"] = "KidsN'Toys Home";
 
-.row {
-  display: flex;
 }
+<head>
+    <link href="~/Css/StyleSheet.css" rel="stylesheet" type="text/css">
+</head>
 
-.image-cropper {
-  width: 120px;
-  height: 120px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 50%;
-  flex: 33.33%;
-  margin: 50px;
-  vertical-align: middle;
-}
-
-img {
-  display: inline;
-  margin: 0 auto;
-  height: 100%;
-  width: auto;
-}
-
-.List
-{
-    width: 1000px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-</style>
 <div class="List">
 
  @Html.Partial("Search")
