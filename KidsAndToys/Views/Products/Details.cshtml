@@ -5,13 +5,26 @@
 <h6>@Model.ProductName</h6>
 <h6>@Model.City.Title</h6>
 <h6>@Model.Age.Title</h6>
+<h6>@Model.Price kr</h6>
 <h6>@Model.Description</h6>
 <h6>@Model.Condition.Title</h6>
 <h6>@Model.ConditionDescription</h6>
 <img src="/uploads/@Model.AdsPic1" />
+
+@if (Model.AdsPic2 != null)
+{
 <img src="/uploads/@Model.AdsPic2" />
+    
+}
+@if (Model.AdsPic3 != null)
+{
 <img src="/uploads/@Model.AdsPic3" />
+    
+}@if (Model.AdsPic4 != null)
+{
 <img src="/uploads/@Model.AdsPic4" />
+    
+}
 
 
 

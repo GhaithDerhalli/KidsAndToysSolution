@@ -6,5 +6,6 @@
 	[City] varchar(30) NOT NULL,
 	[ProfilePic] varchar(max) null,
 	[UserName] varchar(max) Not Null,
-	[Email] varchar(Max) Not null
+	[Email] varchar(Max) Not null,
+	[PhoneNumber] varchar(Max) Not null
 )

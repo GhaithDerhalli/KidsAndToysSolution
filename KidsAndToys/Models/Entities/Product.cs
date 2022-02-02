@@ -14,7 +14,7 @@ namespace KidsAndToys.Models.Entities
         public int CategoryId { get; set; }
         public int ConditionId { get; set; }
         public string? ConditionDescription { get; set; }
-        public decimal Price { get; set; }
+        public int Price { get; set; }
         public string? Description { get; set; }
         public int CityId { get; set; }
         public string AdsPic1 { get; set; } = null!;

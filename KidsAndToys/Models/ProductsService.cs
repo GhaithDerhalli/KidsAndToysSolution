@@ -259,6 +259,7 @@ namespace KidsAndToys.Models
                     City = o.City,
                     UserName = o.User.UserName,
                     Email = o.User.Email,
+                    PhoneNumber = o.User.PhoneNumber,
                     AdsPic1 = o.AdsPic1,
                     AdsPic2 = o.AdsPic2,
                     AdsPic3 = o.AdsPic3,

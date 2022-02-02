@@ -57,7 +57,8 @@ namespace KidsAndToys.Models
                     ZipCode = viewModel.ZipCode,
                     Address = viewModel.Address,
                     City = viewModel.City,
-                    ProfilePic = viewModel.ProfilePic?.FileName
+                    ProfilePic = viewModel.ProfilePic?.FileName,
+                    PhoneNumber = viewModel.PhoneNumber
 
                 });
                 kidsAndToysDBContext.SaveChanges();

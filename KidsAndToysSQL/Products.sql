@@ -9,7 +9,7 @@
 	[CategoryId] int  NOT NULL REFERENCES Categories(Id),
 	[ConditionId]  int NOT NULL REFERENCES Conditions(Id),
 	[ConditionDescription] varchar(MAX) NULL,
-	[Price] money NOT NULL,
+	[Price] int NOT NULL,
 	[Description] varchar (Max) NULL,
 	[CityId] int NOT NULL REFERENCES Cities(Id),
 	[AdsPic1] varchar(max) Not null,
