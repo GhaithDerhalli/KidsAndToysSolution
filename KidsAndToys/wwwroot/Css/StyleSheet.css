@@ -23,7 +23,7 @@ li {
     font-family: Bahnschrift,Arial,sans-serif;
     font-size: medium;
     color: black;
-    border-color: rgb(254, 227, 229);
+    border-color: white;
     border-style: solid;
 }
 
@@ -55,5 +55,14 @@ img {
     width: auto;
 }
 
+.AdList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
 
-
+.ImageList {
+    width: 120px;
+    height: 120px;
+    float: left;
+}

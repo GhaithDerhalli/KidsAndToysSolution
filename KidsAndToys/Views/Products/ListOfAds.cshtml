@@ -3,58 +3,21 @@
     ViewData["Title"] = "KidsN'Toys annonslista";
 
 }
-<style>
 
-    .container2
-    {
-    width:100%;
-    height:auto;
-    padding:1%;
-}
-
-.ImageList
-{
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    list-style-position:inside; 
-    margin-left:-35px;
-    clear:left;
-}
-
-.TextList
-{
-    margin: 0px;
-}
-
-img {
-  display: block;
-  margin: 0 auto;
-  width: 120px;
-  height: 120px;
-  rightive;
-  overflow: hidden;
-  flex: 33.33%;
-  vertical-align: left;
-  padding-right: 50px;
-}
-
-</style>
+<head>
+    <link href="~/Css/StyleSheet.css" rel="stylesheet" type="text/css">
+</head>
 
 
 <h3><b>Alla annonser</b></h3>
-<ul class="ImageList">
+<ul class="AdList">
     @foreach (var item in Model)
     {
             
         <li>
-            <div class='container2'>
-            <div>
-            <p><img src="/uploads/@item.AdsPic" style="float: left" /></p>
-            </div>  
-            <div style='margin-left:60px;'>
-            <li class="TextList">
-                <a aspcontroller="Products" asp-action="Details" asp-route-id = "@item.Id"><b>@item.ProductName</b></a> 
+            <p><img src="/uploads/@item.AdsPic" class="ImageList" /></p>
+            <li>
+            <a aspcontroller="Products" asp-action="Details" asp-route-id = "@item.Id"><b>@item.ProductName</b></a> 
             <br/> <b>Pris </b>@item.Price kr 
             <br/> <b>Skick </b>@item.Condition.Title 
             <br/> <b>Stad </b>@item.City.Title 
