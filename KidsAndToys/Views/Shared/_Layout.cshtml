@@ -30,11 +30,15 @@
 
         .logIn{
             float: right;
+            position: relative;
+            bottom: 100px
             
         }
         .sell-shop{
             
-            flex-direction:row; 
+            flex-direction:row;
+            position: relative;
+            top: 26px;
         }
 
         .logo {
@@ -50,7 +54,7 @@
         .navstyle-logIn {
             border: solid Black 1px;
             border-radius: 20px;
-            margin: 0 20px;
+
             padding: 4px;
             
         }
@@ -60,11 +64,19 @@
         .navstyle{
             border: solid Black 1px;
             border-radius: 20px;
+            border-bottom: none;
+            border-bottom-right-radius: 0px;
             margin: 0 40px;
-            padding: 4px;
+            padding: 5px;
+            font-size: x-large;
+            padding-left: 25px;
+            padding-right: 25px;
+            border-bottom-left-radius: 0px;
         }
         .navstyle:hover{
             background-color: white;
+            border: white;
+            
         }
 
         a {
@@ -89,6 +101,22 @@
             
         }
 
+        .footerlinks{
+            position: relative;
+            margin: 20px;
+
+        }
+
+        .navstyle-login-logout{
+            border: solid Black 1px;
+            border-radius: 20px;
+            padding: 4px;
+                border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+    border-right: none;
+        }
+
+        
     </style>
 </head>
 <body>
@@ -109,13 +137,13 @@
                 {
                     
                     <a asp-controller="Products" asp-action="MyAds" class="navstyle-logIn">Mina annons</a>
-                    <a asp-controller="Users" asp-action="Logout" class="navstyle-logIn">Logga ut</a>
+                    <a asp-controller="Users" asp-action="Logout" class="navstyle-logIn-logout">Logga ut</a>
                 }
                 else
                 {
 
-                    <a asp-controller="Users" asp-action="LogIn" class="navstyle-logIn">Logga in</a>
-                    <a asp-controller="Users" asp-action="CreateUser" class="navstyle-logIn">Skapa ett konto</a>
+                    <a asp-controller="Users" asp-action="CreateUser" class="navstyle-logIn" style="margin-left:10px">Skapa ett konto</a>
+                    <a asp-controller="Users" asp-action="LogIn" class="navstyle-logIn-logout">Logga in</a>
                 }
 
 
@@ -131,18 +159,18 @@
         @RenderBody()
     </div>
     <footer>
-        <div>
-            <div>
-                <hr />
+        <div class ="footerlinks">
+             
 
              
+            
                 <a asp-controller="SidePages" asp-action="About">Om oss</a>
-                <a asp-controller="SidePages" asp-action="Policy">Säkerhetspolicyn </a>
+                <a asp-controller="SidePages" asp-action="Policy" style="margin-left: 300px ">Säkerhetspolicyn </a>
+           
                 <br>
                 <p>Contact<br />Email: kidsNtoy@kidsntoy.com <br /> Adress: Silverstigen 150, 150 56 Göteborg</p>
 
 
-            </div>
         </div>
     </footer>
 </body>
