@@ -23,20 +23,18 @@ namespace KidsAndToys.Views.Products
         public int CategoryValue { get; set; }
 
         [Display(Name = "Skick")]
-        public SelectListItem[]? Condition { get; set; }
+        public string Condition { get; set; }
         [Range(1, 3)]
-        public int ConditionValue { get; set; }
 
         public string ConditionDescription { get; set; }
 
-        public decimal Price { get; set; }
+        public int Price { get; set; }
 
         public string Description { get; set; }
 
         [Display(Name = "Stad")]
-        public SelectListItem[]? City { get; set; }
+        public string City { get; set; }
         [Range(1, 159)]
-        public int CityValue { get; set; }
         [Display(Name = "Bild på varan")]
         [Required(ErrorMessage = "Vänligen bifoga en bild")]
         public IFormFile AdsPic { get; set; }

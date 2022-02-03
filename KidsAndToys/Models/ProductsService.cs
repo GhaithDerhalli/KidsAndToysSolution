@@ -108,10 +108,12 @@ namespace KidsAndToys.Models
                 .Where(o => o.UserId == userId)
                 .Select(o => new MyAdsVM
                 {
-                    Id=o.Id,
+                    Id = o.Id,
                     ProductName = o.ProductName,
                     Price = o.Price,
-                    Picture = o.AdsPic1
+                    Condition = o.Condition,
+                    City = o.City,
+                    AdsPic = o.AdsPic1
                 })
                 .ToArray();
         }
@@ -231,7 +233,10 @@ namespace KidsAndToys.Models
                     {
                         ProductName = p.ProductName,
                         AdsString = p.AdsPic1,
-                        Id = p.Id
+                        Id = p.Id,
+                        Condition = p.Condition.Title,
+                        City = p.City.Title,
+                        Price = p.Price
                     })
                     .ToArray();
                 searchVM.Products = query;
