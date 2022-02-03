@@ -89,7 +89,8 @@
             border-radius: 20px;
             margin: 0 40px;
             padding: 4px;
-            background-color: #cdd2d5;
+            font-weight: bold;
+            text-decoration-line: underline;
 
         }
 
@@ -104,8 +105,8 @@
 
           
 
-            <a class="navstyle @(ViewContext.RouteData.Values["Action"].ToString() == "ListOfAds" ? "active" : "")" asp-controller="Products" asp-action="ListOfAds" class="navstyle">Handla</a>
-            <a class="navstyle @(ViewContext.RouteData.Values["Action"].ToString() == "NewAds" ? "active" : "")" asp-controller="Products" asp-action="NewAds" class="navstyle">Sälj</a>
+            <a class="navstyle @(ViewContext.RouteData.Values["Action"].ToString() == "ListOfAds" ? "active" : "")" asp-controller="Products" asp-action="ListOfAds" class="navstyle">&nbsp;Handla&nbsp;</a>
+            <a class="navstyle @(ViewContext.RouteData.Values["Action"].ToString() == "NewAds" ? "active" : "")" asp-controller="Products" asp-action="NewAds" class="navstyle">&nbsp;&nbsp;&nbsp;&nbsp;Sälj&nbsp;&nbsp;&nbsp;&nbsp;</a>
             </div>
 
         </div>
@@ -115,11 +116,11 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     <a asp-controller="Products" asp-action="MyAds" class="navstyle-logIn">Mina annons</a>
-                    <a asp-controller="Users" asp-action="Logout" class="navstyle-logIn">Logga ut</a>
+                    <a asp-controller="Users" asp-action="Logout" class="navstyle-logIn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logga ut&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                 }
                 else
                 {
-                    <a asp-controller="Users" asp-action="LogIn" class="navstyle-logIn">Logga in</a>
+                    <a asp-controller="Users" asp-action="LogIn" class="navstyle-logIn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logga in&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                     <a asp-controller="Users" asp-action="CreateUser" class="navstyle-logIn">Skapa ett konto</a>
                 }
 
