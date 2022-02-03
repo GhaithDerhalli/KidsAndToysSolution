@@ -12,9 +12,16 @@
 
 <h3><b>Alla annonser</b></h3>
 <ul class="AdList">
+    @{
+        var loop = 0;
+    }
     @foreach (var item in Model)
     {
-
+        if (loop == 4)
+        {
+            <br>
+            loop = 0;
+        }
         <li>
             <p><img src="/uploads/@item.AdsPic" class="ImageList" /></p>
         </li>
@@ -26,7 +33,6 @@
             <br />
             <hr />
         </li>
-
-
+        loop++;
     }
 </ul>
