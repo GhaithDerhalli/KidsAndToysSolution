@@ -12,44 +12,58 @@
 
 <h6><b style= "font-size: 22px">@Model.ProductName</b></h6>
 
-
+<div class="grid-container">
+    
+    <div class="grid-child purple">
 <h6><b>Stad </b><br/>
     @Model.City.Title</h6>
 <h6><b>Ålder </b><br/>
     @Model.Age.Title</h6>
 <h6><b>Pris </b><br/>
     @Model.Price kr</h6>
-<h6><b>Beskrivning </b><br/>
+    </div>
+
+<div class="grid-child green">
+    <h6><b>Beskrivning </b><br/>
     @Model.Description</h6>
 <h6><b>Skick </b><br/>
     @Model.Condition.Title</h6>
 <h6><b>Detaljer </b><br/>
     @Model.ConditionDescription</h6>
+    </div>
 
-
-<p><img src="/uploads/@Model.AdsPic1"/></p>
+</div>
+    
+<div class="AdImg">
+    <p><img src="/uploads/@Model.AdsPic1" class="AdImg"/></p>
 
 @if (Model.AdsPic2 != null)
 {
-<p><img src="/uploads/@Model.AdsPic2"/></p>
+<p><img src="/uploads/@Model.AdsPic2" class="AdImg"/></p>
     
 }
 @if (Model.AdsPic3 != null)
 {
-<p><img src="/uploads/@Model.AdsPic3"/></p>
+<p><img src="/uploads/@Model.AdsPic3" class="AdImg"/></p>
     
 }@if (Model.AdsPic4 != null)
 {
-<p><img src="/uploads/@Model.AdsPic4"/></p>
+<p><img src="/uploads/@Model.AdsPic4" class="AdImg"/></p>
     
 }
+</div>
 
-<h6><b style= "font-size: 22px">Säljare</b></h6>
+
+<div class="AdsSeller">
+<h6><b style= "font-size: 22px" >Säljare</b></h6>
 <h6><b>Namn </b><br/>
     @Model.UserName</h6>
 <h6><b>Email </b><br/>
     @Model.Email</h6>
 <h6><b>Telefonnummer </b><br/>
     @Model.PhoneNumber</h6>
+</div>
     
-    
+
+
+
