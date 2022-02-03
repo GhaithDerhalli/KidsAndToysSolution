@@ -58,7 +58,7 @@ img {
 .AdList {
     list-style: none;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .ImageList {
