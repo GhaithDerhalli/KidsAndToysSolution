@@ -1,8 +1,39 @@
 ﻿@using KidsAndToys.Models.Entities
 @model NewAdsVM
+@*@Html.TextAreaFor(model => model.Description, 12, 50, new { @class = "form-control", @placeholder = "Mandatory" })*@
+@*<head>
+
+    <style>
+        .error-msg{
+            color:red;
+            float:left;
+        }
+        .float-right{
+            float:right;
+        }
+    </style>
+</head>
+<textarea id ="count" class="form-control"></textarea>
+<div class="d-flex">
+    <p class="error-msg">Character limit exceed</p>
+    <p class="float-right"><span id="countno">0</span>/10</p>
+    <br clear="all"/>
+</div>
+
+<script src="js/jquery-latest.min.js"></script>
+<script>
+    $(function(){
+        $("#count").keyup(function(event){
+            $("#countno").text($(this).val().length);
+            var x = $(this).val().length;
+        });
+    })
+</script>
 
 
-<h3>Lägg till en annons </h3>
+<br /><br />*@
+
+<h3><b>Lägg till en annons</b></h3>
 <form asp-controller="Products" asp-action="NewAds" enctype="multipart/form-data">
   
     <label asp-for="ProductName">Namn</label>
@@ -32,8 +63,6 @@
     asp-for="ConditionValue" asp-items = "Model.Condition"></select>
     <span asp-validation-for="ConditionValue"></span>
 
-
-
     <label asp-for="ConditionDescription">Skick beskrivning</label>
     <input asp-for="ConditionDescription" />
     <span asp-validation-for="ConditionDescription"></span>
@@ -42,14 +71,19 @@
     <input asp-for="Price" />
     <span asp-validation-for="Price"></span>
 
-    <label asp-for="Description">Beskrivning</label>
-    <input asp-for="Description" />
+<div class=descriptionText>
+    <label asp-for="Description"></label>
+    <textarea asp-for="Description" placeholder="Skriv en beskrivning av produkten(Max 500 ord)" cols="40" rows="8"></textarea>
+    @*<input asp-for="Description"/>*@
     <span asp-validation-for="Description"></span>
+
+</div>
 
     <label asp-for="City"></label>
     <select
     asp-for="CityValue" asp-items = "Model.City"></select>
     <span asp-validation-for="CityValue"></span>
+
     <label asp-for="AdsPic1"></label>
     <input asp-for="AdsPic1" />
     <span asp-validation-for="AdsPic1"></span>
@@ -67,4 +101,4 @@
     
 </form>
 <div asp-validation-summary="All"></div>
- 
+
