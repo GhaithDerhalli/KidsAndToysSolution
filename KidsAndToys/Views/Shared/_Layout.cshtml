@@ -84,26 +84,28 @@
             display: block;
             width: 100%;           
         }
-        .nav-item.active{
-            
-            background-color: yellowgreen;
+        .navstyle.active{
+            border: solid Black 1px;
+            border-radius: 20px;
+            margin: 0 40px;
+            padding: 4px;
+            background-color: #cdd2d5;
 
         }
 
     </style>
 </head>
 <body>
-    <h1@* class="nav-item @(ViewContext.RouteData.Values["Action"].ToString() == "ListOfAds" ? "active" : "")"> <a class="nav-link navbar-text" asp-area="" asp-controller="Product" asp-action="ListOfAds">Om</a>*@</h1>
     <div class="header">
 
         <div class="logo">
             <a asp-controller="Products" asp-action="Home"><h1><b>Kids N' Toys</b></h1></a>
-            <div class = "sell-shop" >
+            <div class = "nav-item" >
 
           
 
-            <a class="nav-item @(ViewContext.RouteData.Values["Action"].ToString() == "ListOfAds" ? "active" : "")" asp-controller="Products" asp-action="ListOfAds" class="navstyle">Handla</a>
-            <a class="nav-item @(ViewContext.RouteData.Values["Action"].ToString() == "NewAds" ? "active" : "")" asp-controller="Products" asp-action="NewAds" class="navstyle">Sälj</a>
+            <a class="navstyle @(ViewContext.RouteData.Values["Action"].ToString() == "ListOfAds" ? "active" : "")" asp-controller="Products" asp-action="ListOfAds" class="navstyle">Handla</a>
+            <a class="navstyle @(ViewContext.RouteData.Values["Action"].ToString() == "NewAds" ? "active" : "")" asp-controller="Products" asp-action="NewAds" class="navstyle">Sälj</a>
             </div>
 
         </div>
