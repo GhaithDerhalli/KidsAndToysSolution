@@ -14,7 +14,7 @@ namespace KidsAndToys.Views.Products
         public SelectListItem[]? Age { get; set; }
         [Range(1, 17)]
         public int AgeValue { get; set; }
-
+        public MainCategory MainCategory { get; set; }
 
 
         [Display(Name = "Kategori")]

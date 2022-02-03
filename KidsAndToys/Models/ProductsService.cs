@@ -22,84 +22,7 @@ namespace KidsAndToys.Models
             this.accessor = accessor;
             this.webHostEnv = webHostEnv;
         }
-        internal ListOfAdsVM[] ShowOtherCategory()
-        {
-            return kidsAndToysDBContext.Products
-                .Where(o => o.MainCategory.Title == "övrigt")
-               .Select(o => new ListOfAdsVM
-               {
-                   Id = o.Id,
-                   ProductName = o.ProductName,
-                   Price = o.Price,
-                   Condition = o.Condition,
-                   City = o.City,
-                   AdsPic = o.AdsPic1
-               })
-               .ToArray();
-        }
-        internal ListOfAdsVM[] ShowAccessoriesCategory()
-        {
-            return kidsAndToysDBContext.Products
-                .Where(o => o.MainCategory.Title == "accessoarer")
-               .Select(o => new ListOfAdsVM
-               {
-                   Id = o.Id,
-                   ProductName = o.ProductName,
-                   Price = o.Price,
-                   Condition = o.Condition,
-                   City = o.City,
-                   AdsPic = o.AdsPic1
-               })
-               .ToArray();
-        }
-        internal ListOfAdsVM[] ShowToysCategory()
-        {
-            return kidsAndToysDBContext.Products
-                .Where(o => o.MainCategory.Title == "leksaker")
-               .Select(o => new ListOfAdsVM
-               {
-                   Id = o.Id,
-                   ProductName = o.ProductName,
-                   Price = o.Price,
-                   Condition = o.Condition,
-                   City = o.City,
-                   AdsPic = o.AdsPic1
-               })
-               .ToArray();
-        }
-
-        internal ListOfAdsVM[] ShowShoesCategory()
-        {
-            return kidsAndToysDBContext.Products
-                .Where(o => o.MainCategory.Title == "skor")
-               .Select(o => new ListOfAdsVM
-               {
-                   Id = o.Id,
-                   ProductName = o.ProductName,
-                   Price = o.Price,
-                   Condition = o.Condition,
-                   City = o.City,
-                   AdsPic = o.AdsPic1
-               })
-               .ToArray();
-        }
-
-        internal ListOfAdsVM[] ShowClothesCategory()
-        {
-            return kidsAndToysDBContext.Products
-                .Where(o => o.MainCategory.Title == "kläder")
-               .Select(o => new ListOfAdsVM
-               {
-                   Id = o.Id,
-                   ProductName = o.ProductName,
-                   Price = o.Price,
-                   Condition = o.Condition,
-                   City = o.City,
-                   AdsPic = o.AdsPic1
-               })
-               .ToArray();
-        }
-
+        
         public MyAdsVM[] GetAllUserProducts()
         {
             string userId = userManager.GetUserId(accessor.HttpContext.User);
@@ -223,12 +146,12 @@ namespace KidsAndToys.Models
             kidsAndToysDBContext.SaveChanges();
         }
 
-        internal SearchVM SearchProducts(SearchVM viewModel)
+        internal SearchVM SearchProducts(string searchedWord)
         {
             
-                SearchVM searchVM = new SearchVM();
+            SearchVM searchVM = new SearchVM();
                 var query = kidsAndToysDBContext.Products
-                    .Where(p => viewModel.SearchWord == p.ProductName || viewModel.SearchWord == p.Category.Title || viewModel.SearchWord == p.Age.Title || viewModel.SearchWord == p.City.Title || viewModel.SearchWord == p.MainCategory.Title || viewModel.SearchWord == p.Gender.Title)
+                    .Where(p => searchedWord == p.ProductName || searchedWord == p.Category.Title || searchedWord == p.Age.Title || searchedWord == p.City.Title || searchedWord == p.MainCategory.Title || searchedWord == p.Gender.Title)
                     .Select(p => new AddsInDataBase
                     {
                         ProductName = p.ProductName,
@@ -241,6 +164,7 @@ namespace KidsAndToys.Models
                     .ToArray();
                 searchVM.Products = query;
                 return searchVM;
+                
             
             
 
