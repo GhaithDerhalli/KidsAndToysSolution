@@ -176,7 +176,9 @@ namespace KidsAndToys.Models.Entities
 
                 entity.Property(e => e.ConditionDescription).IsUnicode(false);
 
-                entity.Property(e => e.Description).IsUnicode(false);
+                entity.Property(e => e.Description)
+                    .HasMaxLength(1)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ProductName)
                     .HasMaxLength(30)
