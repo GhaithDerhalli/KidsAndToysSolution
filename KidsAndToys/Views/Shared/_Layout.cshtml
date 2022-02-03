@@ -74,10 +74,7 @@
 
             a:hover {
                 color: forestgreen;
-                
             }
-
-
 
         footer {
             text-align: center;
@@ -85,39 +82,44 @@
             background-color: #b4e1d8;
             color: black;
             display: block;
-            width: 100%;
+            width: 100%;           
+        }
+        .nav-item.active{
             
+            background-color: yellowgreen;
+
         }
 
     </style>
 </head>
 <body>
+    <h1@* class="nav-item @(ViewContext.RouteData.Values["Action"].ToString() == "ListOfAds" ? "active" : "")"> <a class="nav-link navbar-text" asp-area="" asp-controller="Product" asp-action="ListOfAds">Om</a>*@</h1>
     <div class="header">
 
         <div class="logo">
             <a asp-controller="Products" asp-action="Home"><h1><b>Kids N' Toys</b></h1></a>
             <div class = "sell-shop" >
 
-            <a asp-controller="Products" asp-action="ListOfAds" class="navstyle">Handla</a>
-            <a asp-controller="Products" asp-action="NewAds" class="navstyle">Sälj</a>
+          
+
+            <a class="nav-item @(ViewContext.RouteData.Values["Action"].ToString() == "ListOfAds" ? "active" : "")" asp-controller="Products" asp-action="ListOfAds" class="navstyle">Handla</a>
+            <a class="nav-item @(ViewContext.RouteData.Values["Action"].ToString() == "NewAds" ? "active" : "")" asp-controller="Products" asp-action="NewAds" class="navstyle">Sälj</a>
             </div>
+
         </div>
         <div class="logIn">
             <nav>
 
                 @if (User.Identity.IsAuthenticated)
                 {
-                    
                     <a asp-controller="Products" asp-action="MyAds" class="navstyle-logIn">Mina annons</a>
                     <a asp-controller="Users" asp-action="Logout" class="navstyle-logIn">Logga ut</a>
                 }
                 else
                 {
-
                     <a asp-controller="Users" asp-action="LogIn" class="navstyle-logIn">Logga in</a>
                     <a asp-controller="Users" asp-action="CreateUser" class="navstyle-logIn">Skapa ett konto</a>
                 }
-
 
             </nav>
 
@@ -133,15 +135,11 @@
     <footer>
         <div>
             <div>
-                <hr />
-
-             
+                <hr />          
                 <a asp-controller="SidePages" asp-action="About">Om oss</a>
                 <a asp-controller="SidePages" asp-action="Policy">Säkerhetspolicyn </a>
                 <br>
                 <p>Contact<br />Email: kidsNtoy@kidsntoy.com <br /> Adress: Silverstigen 150, 150 56 Göteborg</p>
-
-
             </div>
         </div>
     </footer>

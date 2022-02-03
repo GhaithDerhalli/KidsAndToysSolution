@@ -38,7 +38,8 @@ namespace KidsAndToys.Views.Products
         public string ConditionDescription { get; set; }
 
         public int Price { get; set; }
-
+        [Display(Name ="Beskrivning av varan")]
+        [MaxLength(500, ErrorMessage ="Maximum {1} characters.")]
         public string Description { get; set; }
 
         [Display(Name = "Stad")]
