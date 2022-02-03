@@ -1,7 +1,6 @@
 ﻿@model MyAdsVM[]
 @{
     ViewData["Title"] = "Mina Annonser";
-
 }
 <head>
     <link href="~/Css/StyleSheet.css" rel="stylesheet" type="text/css">
@@ -15,10 +14,9 @@
     
          @foreach (var item in Model)
     {
-        @*<li>@item.ProductName <br/>@item.Price kr <br/> <img src="/uploads/@item.Picture" /><button>Redigera</button>
-        <button><a aspcontroller="Products" asp-action="Delete" asp-route-id = "@item.Id">Radera</a></button></li>*@
-            <p><img src="/uploads/@item.AdsPic" class="ImageList" /></p>
             <li>
+            <p><img src="/uploads/@item.AdsPic" class="ImageList" /></p>
+            <br/><b/><b/><b/><b/>
             <a aspcontroller="Products" asp-action="Details" asp-route-id = "@item.Id"><b style= "font-size: 20px">@item.ProductName</b></a> 
             <br/> <b>Pris </b>@item.Price kr 
             <br/> <b>Skick </b>@item.Condition.Title 
@@ -31,37 +29,13 @@
     }
     @if (Model.Length == 0)
         {
-            <h4>Du har inga annonser.</h4>
+            <li>
+                <h4>Du har inga annonser.</h4>
+            </li>
         }
      </ul>
      </div>
-    
-    
-@*<div>
-    <ul class="AdList">
-        @foreach (var item in Model)
-    {
-        <li>
-            <p><img src="/uploads/@item.AdsPic" class="ImageList" /></p>
-            <li>
-            <a aspcontroller="Products" asp-action="Details" asp-route-id = "@item.Id"><b style= "font-size: 20px">@item.ProductName</b></a> 
-            <br/> <b>Pris </b>@item.Price kr 
-            <br/> <b>Skick </b>@item.Condition.Title 
-            <br/> <b>Stad </b>@item.City.Title 
-            <button>Redigera</button>
-            <button><a aspcontroller="Products" asp-action="Delete" asp-route-id = "@item.Id">Radera</a></button>
-            <br/>
-            <hr/>
-        </li>
-        </li>
-    }
 
-    @if (Model.Length == 0)
-        {
-            <h4>Du har inga annonser.</h4>
-        }
-     </ul>
-</div> *@
     
     
 
