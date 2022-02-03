@@ -20,26 +20,26 @@ values
 
 insert into Categories(Id, Title)
 values
-('1', 'Jackor'),
-('2', 'Byxor'),
-('3', 'T-shirt'),
-('4', 'Tröja'),
-('5', 'Kjol'),
-('6', 'Klänning'),
-('7', 'Body'),
-('8', 'Shorts'),
-('9', 'Strumpor'),
-('10', 'Stövlar'),
-('11', 'Idrottskor'),
-('12', 'Sneakers'),
-('13', 'Babyskor'),
-('14', 'Leksaker'),
-('15', 'DataSpel'),
-('16', 'Brädspel'),
-('17', 'Accessoarer'),
-('18', 'Väskor'),
-('19', 'Vagnar'),
-('20', 'Övrigt');
+('1', 'jackor'),
+('2', 'byxor'),
+('3', 't-shirt'),
+('4', 'tröja'),
+('5', 'kjol'),
+('6', 'klänning'),
+('7', 'body'),
+('8', 'shorts'),
+('9', 'strumpor'),
+('10', 'stövlar'),
+('11', 'idrottskor'),
+('12', 'sneakers'),
+('13', 'babyskor'),
+('14', 'leksaker'),
+('15', 'dataSpel'),
+('16', 'brädspel'),
+('17', 'accessoarer'),
+('18', 'väskor'),
+('19', 'vagnar'),
+('20', 'övrigt');
 
 insert into Conditions(Id, Title)
 values
@@ -221,8 +221,8 @@ values
 
 insert into MainCategories(Id, Title)
 values
-('1', 'Kläder'),
-('2', 'Skor'),
-('3', 'Leksaker'),
-('4', 'Accessoarer'),
-('5', 'Övrigt')
+('1', 'kläder'),
+('2', 'skor'),
+('3', 'leksaker'),
+('4', 'accessoarer'),
+('5', 'övrigt')

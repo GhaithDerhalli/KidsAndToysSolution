@@ -1,4 +1,4 @@
-﻿@model HomeVM[]
+﻿@model HomeVM
 @{
     ViewData["Title"] = "KidsN'Toys Home";
 
@@ -9,39 +9,40 @@
 
 <div class="List">
 
- @Html.Partial("Search")
+ @Html.Partial("search")
         
         <hr/>
         <div class="row">
-        <a href="@Url.Action("ClothesCategory", "Categories", null)" style="text-decoration: none;">
+                <a href="search/kläder" style="text-decoration: none;">
+
         <div class="image-cropper" >
         <img src="/uploads/tips-for-washing-baby-clothes.jpg"> 
         </div>
         <p style="text-align: center;">Kläder</p>
         </a>
      
-        <a href="@Url.Action("ShoesCategory", "Categories", null)" style="text-decoration: none;">
+        <a href="search/skor" style="text-decoration: none;">
         <div class="image-cropper">
         <img src="/uploads/12e9b65a-fbdc-4356-871b-5dd06e2f4e1d_1.d050ea49fa7d29a5993c4de87fea099d.jpeg"> 
         </div>
         <p style="text-align: center;">Skor</p>
         </a>
 
-        <a href="@Url.Action("ToysCategory", "Categories", null)" style="text-decoration: none;">
+        <a href="search/leksaker" style="text-decoration: none;">
         <div class="image-cropper">
         <img src="/uploads/baby-leksaker-5635003.jpg"> 
         </div>
         <p style="text-align: center;">Leksaker</p>
         </a>
-
-        <a href="@Url.Action("AccessoriesCategory", "Categories", null)" style="text-decoration: none;">
+        <a href="search/accessoarer" style="text-decoration: none;">
         <div class="image-cropper">
         <img src="/uploads/images.jfif"> 
         </div>
         <p style="text-align: center;">Accessoarer</p>
         </a>
 
-        <a href="@Url.Action("OtherCategory", "Categories", null)" style="text-decoration: none;">
+        <a href="search/övrigt" style="text-decoration: none;">
+
         <div class="image-cropper">
         <img src="/uploads/156283116-600x450.jpeg"> 
         </div>

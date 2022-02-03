@@ -9,13 +9,14 @@
     <link href="~/Css/StyleSheet.css" rel="stylesheet" type="text/css">
 </head>
 
-<form asp-controller="Products" asp-action="Search">
+<form asp-controller="Products" asp-action="Search" method="get">
 <label asp-for="SearchWord">Sök</label>
 <input asp-for="SearchWord" />
-<input type="submit" value="Search" />
+<input type="submit" value="Search"/>
+ 
 </form>
 <div>
-    <ul class="AdList">
+    <ul class="AdList" >
     @if (Model != null)
     {
         foreach (var item in Model.Products)

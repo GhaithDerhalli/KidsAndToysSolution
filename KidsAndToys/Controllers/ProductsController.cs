@@ -82,15 +82,20 @@ namespace KidsAndToys.Controllers
         [HttpGet]
         public IActionResult Search()
         {
-
+            if (!String.IsNullOrEmpty(HttpContext.Request.Query["SearchWord"]))
+            {
+                var model = productsService.SearchProducts(HttpContext.Request.Query["SearchWord"]);
+                return View(model);
+            }
+            else
             return View();
         }
 
-        [Route("search")]
-        [HttpPost]
-        public IActionResult Search(SearchVM viewModel)
+        [Route("search/{searchedWord}")]
+        [HttpGet]
+        public IActionResult Search(string searchedWord)
         {
-            var model = productsService.SearchProducts(viewModel);
+            var model = productsService.SearchProducts(searchedWord);
             if (model == null)
             {
                 return View();
@@ -99,7 +104,6 @@ namespace KidsAndToys.Controllers
         }
         
 
-      
 
 
     }
