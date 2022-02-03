@@ -5,6 +5,8 @@ namespace KidsAndToys.Views.Products
 {
     public class NewAdsVM
     {
+        public int Id { get;}
+
         public string ProductName { get; set; }
 
         [Display(Name = "Ålder")]
@@ -12,11 +14,20 @@ namespace KidsAndToys.Views.Products
         [Range(1, 17)]
         public int AgeValue { get; set; }
 
+        [Display(Name = "Kön")]
+        public SelectListItem[]? Gender { get; set; }
+        [Range(1, 3)]
+        public int GenderValue { get; set; }
 
-
-        [Display(Name = "Kategori")]
-        public SelectListItem[]? Category { get; set; } = null!;
+        [Display(Name = "Huvud Kategori")]
+        public SelectListItem[]? MainCategory { get; set; } = null!;
         [Range(1, 5)]
+        public int MainCategoryValue { get; set; }
+
+
+        [Display(Name = "Under Kategori")]
+        public SelectListItem[]? Category { get; set; } = null!;
+        [Range(1, 20)]
         public int CategoryValue { get; set; }
 
         [Display(Name = "Skick")]
@@ -26,7 +37,7 @@ namespace KidsAndToys.Views.Products
 
         public string ConditionDescription { get; set; }
 
-        public decimal Price { get; set; }
+        public int Price { get; set; }
 
         public string Description { get; set; }
 
@@ -34,5 +45,19 @@ namespace KidsAndToys.Views.Products
         public SelectListItem[]? City { get; set; }
         [Range(1,4)]
         public int CityValue { get; set; }
+
+        [Display(Name = "Bild på varan")]
+        [Required(ErrorMessage = "Vänligen bifoga bild")]
+        public IFormFile AdsPic1 { get; set; }
+
+        [Display(Name = "Bild 2")]
+        public IFormFile? AdsPic2 { get; set; }
+
+        [Display(Name = "Bild 3")]
+        public IFormFile? AdsPic3 { get; set; }
+
+        [Display(Name = "Bild 4")]
+        public IFormFile? AdsPic4 { get; set; }
+
     }
 }

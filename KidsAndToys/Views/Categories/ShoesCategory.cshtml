@@ -1,0 +1,23 @@
+﻿@model ListOfAdsVM[]
+<head>
+    <link href="~/Css/StyleSheet.css" rel="stylesheet" type="text/css">
+</head>
+
+<h3>Lista av annonser</h3>
+<ul class="AdList">
+    @foreach (var item in Model)
+    {
+        <li>
+            <p><img src="/uploads/@item.AdsPic" class="ImageList" /></p>
+            <li>
+            <a aspcontroller="Products" asp-action="Details" asp-route-id = "@item.Id"><b style= "font-size: 20px">@item.ProductName</b></a> 
+            <br/> <b>Pris </b>@item.Price kr 
+            <br/> <b>Skick </b>@item.Condition.Title 
+            <br/> <b>Stad </b>@item.City.Title 
+            <br/>
+            <hr/>
+            </li>
+            
+        </li>
+    }
+</ul>

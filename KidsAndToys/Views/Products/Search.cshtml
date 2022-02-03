@@ -1,0 +1,44 @@
+﻿@model SearchVM
+
+@{
+    ViewData["Title"] = "Sökning";
+
+}
+
+<head>
+    <link href="~/Css/StyleSheet.css" rel="stylesheet" type="text/css">
+</head>
+
+<form asp-controller="Products" asp-action="Search">
+<label asp-for="SearchWord">Sök</label>
+<input asp-for="SearchWord" />
+<input type="submit" value="Search" />
+</form>
+<div>
+    <ul class="AdList">
+    @if (Model != null)
+    {
+        foreach (var item in Model.Products)
+        {           
+            <li>
+            <p><img src="/uploads/@item.AdsString" class="ImageList" /></p>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <a aspcontroller="Products" asp-action="Details" asp-route-id = "@item.Id"><b style= "font-size: 20px">@item.ProductName</b></a> 
+            <br/> <b>Pris </b>@item.Price kr 
+            <br/> <b>Skick </b>@item.Condition
+            <br/> <b>Stad </b>@item.City
+            <br/>
+            <hr/>
+        </li>
+        }
+        if (Model.Products.Length == 0)
+        {
+             <h3>Din sökning angav inga träffar.</h3>
+        }
+    }
+    
+</ul>
+</div>

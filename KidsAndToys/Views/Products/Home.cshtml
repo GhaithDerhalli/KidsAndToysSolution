@@ -1,11 +1,52 @@
 ﻿@model HomeVM[]
- 
-        <input id="searchId"></input>
-        <input type="submit" value="Search" />
+@{
+    ViewData["Title"] = "KidsN'Toys Home";
+
+}
+<head>
+    <link href="~/Css/StyleSheet.css" rel="stylesheet" type="text/css">
+</head>
+
+<div class="List">
+
+ @Html.Partial("Search")
+        
         <hr/>
-        <a asp-controller="Products" asp-action="ListOfAds">Kläder</a>
-        <a asp-controller="Products" asp-action="ListOfAds">Skor</a>
-        <a asp-controller="Products" asp-action="ListOfAds">Leksaker</a>
-        <a asp-controller="Products" asp-action="ListOfAds">Accessoarer</a>
-        <a asp-controller="Products" asp-action="ListOfAds">TV-Spel</a>
-   
+        <div class="row">
+        <a href="@Url.Action("ClothesCategory", "Categories", null)" style="text-decoration: none;">
+        <div class="image-cropper" >
+        <img src="/uploads/tips-for-washing-baby-clothes.jpg"> 
+        </div>
+        <p style="text-align: center;">Kläder</p>
+        </a>
+     
+        <a href="@Url.Action("ShoesCategory", "Categories", null)" style="text-decoration: none;">
+        <div class="image-cropper">
+        <img src="/uploads/12e9b65a-fbdc-4356-871b-5dd06e2f4e1d_1.d050ea49fa7d29a5993c4de87fea099d.jpeg"> 
+        </div>
+        <p style="text-align: center;">Skor</p>
+        </a>
+
+        <a href="@Url.Action("ToysCategory", "Categories", null)" style="text-decoration: none;">
+        <div class="image-cropper">
+        <img src="/uploads/baby-leksaker-5635003.jpg"> 
+        </div>
+        <p style="text-align: center;">Leksaker</p>
+        </a>
+
+        <a href="@Url.Action("AccessoriesCategory", "Categories", null)" style="text-decoration: none;">
+        <div class="image-cropper">
+        <img src="/uploads/images.jfif"> 
+        </div>
+        <p style="text-align: center;">Accessoarer</p>
+        </a>
+
+        <a href="@Url.Action("OtherCategory", "Categories", null)" style="text-decoration: none;">
+        <div class="image-cropper">
+        <img src="/uploads/156283116-600x450.jpeg"> 
+        </div>
+        <p style="text-align: center;">Övrigt</p>
+        </a>
+
+        </div>
+  </div>     

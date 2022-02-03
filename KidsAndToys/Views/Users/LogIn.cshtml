@@ -1,13 +1,13 @@
 ﻿@model LogInVM
 
 
-<h3>Login</h3>
-<form asp-controller="Products" asp-action="Login">
-    <label asp-for="Username"></label>
+<h3><b>Logga in</b></h3>
+<form asp-controller="Users" asp-action="Login">
+    <label asp-for="Username">Användarnamn</label>
     <input asp-for="Username" />
     <span asp-validation-for="Username"></span>
     
-    <label asp-for="Password"></label>
+    <label asp-for="Password">Lösenord</label>
     <input asp-for="Password" />
     <span asp-validation-for="Password"></span>
     <br />

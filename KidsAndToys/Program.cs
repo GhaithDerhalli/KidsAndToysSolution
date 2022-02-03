@@ -25,7 +25,10 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>()
 builder.Services.ConfigureApplicationCookie(
     o => o.LoginPath = "/login");
 
+builder.Services.AddHttpContextAccessor();
+
 var app = builder.Build();
+app.UseStaticFiles();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/error/exception");

@@ -1,5 +1,25 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model ListOfAdsVM[]
 @{
+    ViewData["Title"] = "KidsN'Toys annonslista";
 }
+
+<head>
+    <link href="~/Css/StyleSheet.css" rel="stylesheet" type="text/css">
+</head>
+
+<h3><b>Alla annonser</b></h3>
+<ul class="AdList">
+    @foreach (var item in Model)
+    {
+            <li>
+            <p><img src="/uploads/@item.AdsPic" class="ImageList" /></p>
+            <br/><br/><br/><br/><br/>
+            <a aspcontroller="Products" asp-action="Details" asp-route-id = "@item.Id"><b style= "font-size: 20px">@item.ProductName</b></a> 
+            <br/> <b>Pris </b>@item.Price kr 
+            <br/> <b>Skick </b>@item.Condition.Title 
+            <br/> <b>Stad </b>@item.City.Title 
+            <br/>
+            <hr/>
+        </li>
+    }
+</ul>

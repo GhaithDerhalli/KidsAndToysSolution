@@ -12,8 +12,8 @@ namespace KidsAndToys.Controllers
         ProductsService productsService;
         public ProductsController(ProductsService productsService, UsersService usersService)
         {
-            this.productsService =  productsService;
-            this.usersService =  usersService;
+            this.productsService = productsService;
+            this.usersService = usersService;
         }
         [Route("")]
         [HttpGet]
@@ -21,6 +21,7 @@ namespace KidsAndToys.Controllers
         {
             return View();
         }
+        
         [Authorize]
         [Route("newads")]
         [HttpGet]
@@ -35,100 +36,70 @@ namespace KidsAndToys.Controllers
         public IActionResult NewAds(NewAdsVM viewModel)
         {
             if (!ModelState.IsValid)
+            {
+                viewModel = productsService.GetDropDownLists();
                 return View(viewModel);
+            }
             productsService.AddAd(viewModel);
             return RedirectToAction(nameof(Home));
         }
-
-
-        [Route("createuser")]
-        [HttpGet]
-        public IActionResult CreateUser()
-        {
-            //return Content("new user");
-            return View();
-        }
-        [Route("createuser")]
-        [HttpPost]
-        public async Task<IActionResult> CreateUser(CreateUserVM viewModel)
-        {
-            if (!ModelState.IsValid)
-                return View(viewModel);
-
-            // Try to register user
-            var errorMessage = await usersService.TryRegisterAsync(viewModel);
-            if (errorMessage != null)
-            {
-                // Show error
-                ModelState.AddModelError(string.Empty, errorMessage);
-                return View(viewModel);
-            }
-
-            // Redirect user
-            return RedirectToAction(nameof(Home));
-        }
-        [Route("login")]
-        [HttpGet]
-        public IActionResult Login()
-        {
-            //return Content("login");
-            return View();
-        }
-        [HttpPost]
-        [Route("login")]
-        public async Task<IActionResult> LoginAsync(LogInVM viewModel)
-        {
-            if (!ModelState.IsValid)
-                return View(viewModel);
-
-            // Check if credentials is valid (and set auth cookie)
-            var success = await usersService.TryLoginAsync(viewModel);
-            if (!success)
-            {
-                // Show error
-                ModelState.AddModelError(nameof(LogInVM.Username), "Login failed");
-                return View(viewModel);
-            }
-
-            // Redirect user
-            return RedirectToAction(nameof(Home));
-        }
-       
-        [Route("logout")]
-        [HttpGet]    
-        public async Task<IActionResult> Logout()
-        {
-            await usersService.LogOutAsync();
-            return RedirectToAction(nameof(Login));
-
-        }
-
 
         [Authorize]
         [Route("myads")]
         [HttpGet]
         public IActionResult MyAds()
         {
-            return Content("Mina annonser");
-            //return View();
+           
+            var model = productsService.GetAllUserProducts();
+            return View(model);
         }
-
+        [Authorize]
+        [Route("delete/{id}")]
+        [HttpGet]
+        public IActionResult Delete(MyAdsVM viewModel)
+        {
+            productsService.DeleteProduct(viewModel);
+            return RedirectToAction(nameof(MyAds));
+        }
 
         [Route("listofads")]
         [HttpGet]
         public IActionResult ListOfAds()
         {
-            return Content("lista av annonser");
-            //return View();
+            var model = productsService.GetAllProducts();
+            return View(model);
+        }
+        
+        [Route("details/{id}")]
+        [HttpGet]
+        public IActionResult Details(DetailsVM modelView)
+        {
+            var model = productsService.GetDetails(modelView);
+            return View(model);
         }
 
-        [Route("details")]
+        [Route("search")]
         [HttpGet]
-        public IActionResult Details()
+        public IActionResult Search()
         {
-            return Content("details");
-            //return View();
+
+            return View();
         }
+
+        [Route("search")]
+        [HttpPost]
+        public IActionResult Search(SearchVM viewModel)
+        {
+            var model = productsService.SearchProducts(viewModel);
+            if (model == null)
+            {
+                return View();
+            }
+            return View(model);
+        }
+        
+
+      
 
 
     }
