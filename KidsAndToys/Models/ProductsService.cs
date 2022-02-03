@@ -128,7 +128,7 @@ namespace KidsAndToys.Models
                 .Add(new Product
                 {
                     UserId = userId,
-                    ProductName = viewModel.ProductName,
+                    ProductName = char.ToUpper(viewModel.ProductName[0]) + viewModel.ProductName.Substring(1,viewModel.ProductName.Length-1), 
                     MainCategoryId = viewModel.MainCategoryValue,
                     CategoryId = viewModel.CategoryValue,
                     AgeId = viewModel.AgeValue,
@@ -141,7 +141,8 @@ namespace KidsAndToys.Models
                     AdsPic1 = viewModel.AdsPic1.FileName,
                     AdsPic2 = viewModel.AdsPic2?.FileName,
                     AdsPic3 = viewModel.AdsPic3?.FileName,
-                    AdsPic4 = viewModel.AdsPic4?.FileName
+                    AdsPic4 = viewModel.AdsPic4?.FileName,
+                    
                 });
             kidsAndToysDBContext.SaveChanges();
         }
