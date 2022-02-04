@@ -153,14 +153,14 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     <a asp-controller="Products" asp-action="MyAds" class="navstyle-logIn">Mina annons</a>
-                    <a asp-controller="Users" asp-action="Logout" class="navstyle-logIn-logout">Logga ut</a>
+                    <a asp-controller="Users" asp-action="Logout" class="navstyle-logIn-logout">Logga ut <i class="fa fa-user-circle-o"></i></a>
                     @*<a asp-controller="Users" asp-action="Logout" class="navstyle-logIn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logga ut&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>*@
                 }
                 else
                 {
 
                     <a asp-controller="Users" asp-action="CreateUser" class="navstyle-logIn" style="margin-left:10px">Skapa ett konto</a>
-                    <a asp-controller="Users" asp-action="LogIn" class="navstyle-logIn-logout">Logga in</a>
+                    <a asp-controller="Users" asp-action="LogIn" class="navstyle-logIn-logout">Logga in <i class="fa fa-user-circle-o"></i></a>
                     @*<a asp-controller="Users" asp-action="LogIn" class="navstyle-logIn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logga in&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>*@
                     @*<a asp-controller="Users" asp-action="CreateUser" class="navstyle-logIn">Skapa ett konto</a>*@
                 }
