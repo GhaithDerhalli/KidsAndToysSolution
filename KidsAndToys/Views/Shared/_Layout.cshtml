@@ -1,148 +1,77 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 <!DOCTYPE html>
 <html lang="se">
+    
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <link rel="stylesheet" href="~/Css/StyleSheetLayout.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>@ViewBag.title</title>
-    <style>
-        body {
-            color: black;
-            font-family: 'Bahnschrift';
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .header {
-            width: 100%;
-            height: 100%;
-            display: block;
-            margin: 0 auto;
-            background-color: #b4e1d8;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .logIn{
-            float: right;
-            
-        }
-        .sell-shop{
-            
-            flex-direction:row; 
-        }
-
-        .logo {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .navstyle-logIn {
-            border: solid Black 1px;
-            border-radius: 20px;
-            margin: 0 20px;
-            padding: 4px;
-            
-        }
-        .navstyle-logIn:hover {
-        background-color: white;
-        }
-        .navstyle{
-            border: solid Black 1px;
-            border-radius: 20px;
-            margin: 0 40px;
-            padding: 4px;
-        }
-        .navstyle:hover{
-            background-color: white;
-        }
-
-        a {
-            text-decoration: none;
-            color: black;
-        }
-
-            a:hover {
-                color: forestgreen;
-            }
-
-        footer {
-            text-align: center;
-            padding: 0px;
-            background-color: #b4e1d8;
-            color: black;
-            display: block;
-            width: 100%;           
-        }
-        .navstyle.active{
-            border: solid Black 1px;
-            border-radius: 20px;
-            margin: 0 40px;
-            padding: 4px;
-            font-weight: bold;
-            text-decoration-line: underline;
-
-        }
-
-    </style>
+   
 </head>
 <body>
-    <div class="header">
+   
+    <div class="nav_header">
 
+            <nav class="logIn">
+                <ul class="ul_nav">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="li_nav">
+                            <a asp-controller="Products" asp-action="MyAds" class="navstyle-logIn">&nbsp; Mina annons &nbsp;</a>
+                        </li>
+                        <li class="li_nav">
+                            <a asp-controller="Users" asp-action="Logout" 
+                            class="navstyle-logIn">&nbsp;&nbsp; Logga ut &nbsp;&nbsp;<i class="fa fa-user-circle-o"></i> &nbsp;</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="li_nav">
+                            <a asp-controller="Users" asp-action="CreateUser" class="navstyle-logIn">Skapa ett konto</a>
+                        </li>
+                        <li class="li_nav">
+                             <a asp-controller="Users" asp-action="LogIn" class="navstyle-logIn">&nbsp;&nbsp;&nbsp; Logga in &nbsp;&nbsp;<i class="fa fa-user-circle-o"></i>&nbsp;&nbsp;&nbsp;</a>
+                        </li>
+                    }
+                </ul>
+
+            </nav>
         <div class="logo">
             <a asp-controller="Products" asp-action="Home"><h1><b>Kids N' Toys</b></h1></a>
             <div class = "nav-item" >
-
-          
-
-            <a class="navstyle @(ViewContext.RouteData.Values["Action"].ToString() == "ListOfAds" ? "active" : "")" asp-controller="Products" asp-action="ListOfAds" class="navstyle">&nbsp;Handla&nbsp;</a>
-            <a class="navstyle @(ViewContext.RouteData.Values["Action"].ToString() == "NewAds" ? "active" : "")" asp-controller="Products" asp-action="NewAds" class="navstyle">&nbsp;&nbsp;&nbsp;&nbsp;Sälj&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                 <a class="navstyle @(ViewContext.RouteData.Values["Action"].ToString() == "ListOfAds" ? "active" : "")" 
+                 asp-controller="Products" asp-action="ListOfAds" class="navstyle">&nbsp;Handla&nbsp;</a>
+                 <a class="navstyle @(ViewContext.RouteData.Values["Action"].ToString() == "NewAds" ? "active" : "")" 
+                 asp-controller="Products" asp-action="NewAds" class="navstyle">&nbsp;&nbsp;&nbsp;&nbsp;Sälj&nbsp;&nbsp;&nbsp;&nbsp;</a>
             </div>
-
+            <br/>
         </div>
-        <div class="logIn">
-            <nav>
-
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <a asp-controller="Products" asp-action="MyAds" class="navstyle-logIn">Mina annons</a>
-                    <a asp-controller="Users" asp-action="Logout" class="navstyle-logIn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logga ut&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-                }
-                else
-                {
-                    <a asp-controller="Users" asp-action="LogIn" class="navstyle-logIn">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logga in&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-                    <a asp-controller="Users" asp-action="CreateUser" class="navstyle-logIn">Skapa ett konto</a>
-                }
-
-            </nav>
-
-        </div>
+     
 
     </div>
     <hr />
 
-    </>
+    
     <div>
         @RenderBody()
     </div>
     <footer>
-        <div>
-            <div>
-                <hr />          
-                <a asp-controller="SidePages" asp-action="About">Om oss</a>
-                <a asp-controller="SidePages" asp-action="Policy">Säkerhetspolicyn </a>
-                <br>
-                <p>Contact<br />Email: kidsNtoy@kidsntoy.com <br /> Adress: Silverstigen 150, 150 56 Göteborg</p>
+        <div class="footer_upper">
+            <a asp-controller="SidePages" asp-action="About">Om oss</a>
+            <a asp-controller="SidePages" asp-action="Policy">Säkerhetspolicyn </a>
+            <br/><br/>
+            <p>Kontakt:<br/> 
+                  <span class="footer_detail">
+                      Email: kidsNtoy@kidsntoy.com <br /> Adress: Silverstigen 150 <br /> 150 56 Göteborg
+                  </span> 
+            </p>
+            <div class="footer_lower">
+                <p>&copy; KidsN'Toys 2022</p>
             </div>
         </div>
     </footer>

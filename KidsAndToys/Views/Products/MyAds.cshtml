@@ -5,6 +5,7 @@
 }
 <head>
     <link href="~/Css/StyleSheet.css" rel="stylesheet" type="text/css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </head>
 
 <h3>Mina annonser</h3>
@@ -15,23 +16,25 @@
     
          @foreach (var item in Model)
     {
-        @*<li>@item.ProductName <br/>@item.Price kr <br/> <img src="/uploads/@item.Picture" /><button>Redigera</button>
-        <button><a aspcontroller="Products" asp-action="Delete" asp-route-id = "@item.Id">Radera</a></button></li>*@
-            <p><img src="/uploads/@item.AdsPic" class="ImageList" /></p>
+       
             <li>
-            <a aspcontroller="Products" asp-action="Details" asp-route-id = "@item.Id"><b style= "font-size: 20px">@item.ProductName</b></a> 
-            <br/> <b>Pris </b>@item.Price kr 
-            <br/> <b>Skick </b>@item.Condition.Title 
-            <br/> <b>Stad </b>@item.City.Title 
-            <br/><button>Redigera</button>
-            <button><a aspcontroller="Products" asp-action="Delete" asp-route-id = "@item.Id">Radera</a></button>
-            <br/>
-            <hr/>
-        </li>
+                <p><img src="/uploads/@item.AdsPic" class="ImageList" /></p>
+                <br/><br/><br/><br/><br/>
+                <a aspcontroller="Products" asp-action="Details" asp-route-id = "@item.Id"><b style= "font-size: 20px">@item.ProductName</b></a> 
+                <br/> <b>Pris </b>@item.Price kr 
+                <br/> <b>Skick </b>@item.Condition.Title 
+                <br/> <b>Stad </b>@item.City.Title 
+                <br/><button>Redigera</button>
+                <button><a aspcontroller="Products" asp-action="Delete" asp-route-id = "@item.Id"><i class='fas fa-trash-alt'></i> Radera</a></button>
+                <br/>
+                <hr/>
+            </li>
     }
     @if (Model.Length == 0)
         {
-            <h4>Du har inga annonser.</h4>
+            <li>
+                <h4>Du har inga annonser.</h4>
+            </li>
         }
      </ul>
      </div>
