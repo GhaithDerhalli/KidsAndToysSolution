@@ -7,14 +7,17 @@
 
 <head>
     <link href="~/Css/StyleSheet.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<form asp-controller="Products" asp-action="Search" method="get">
-<label asp-for="SearchWord">Sök</label>
-<input asp-for="SearchWord" />
-<input type="submit" value="Search"/>
- 
-</form>
+<div class="searchbar">
+    <form asp-controller="Products" asp-action="Search" method="get">
+    @*<label asp-for="SearchWord"></label>*@
+    <input placeholder="&#128270; Sök" asp-for="SearchWord" />
+    <input type="submit" value="Search"/>
+    </form>
+
+</div>
 <div>
     <ul  >
     @if (Model != null)

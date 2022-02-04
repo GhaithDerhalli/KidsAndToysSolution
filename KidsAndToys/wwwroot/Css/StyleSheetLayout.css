@@ -1,0 +1,95 @@
+﻿body {
+    color: black;
+    font-family: 'Bahnschrift';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.ul_nav{
+list-style-type: none;
+margin: 0;
+padding: 0;
+    
+}
+.li_nav {
+    display: inline;
+    border: solid Black 1px;
+    border-radius: 20px;
+    margin: 0 20px;
+    padding: 4px;
+}
+
+.nav_header {
+    position:sticky;
+    top:0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+    background-color: #b4e1d8;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logIn {
+    float: right !important;
+}
+
+.sell-shop {
+    flex-direction: row;
+}
+
+.logo {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left:300px;
+}
+.nav-item{
+    
+}
+.navstyle {
+    border: solid Black 1px;
+    border-radius: 20px;
+    margin: 40px;
+    padding: 4px;
+}
+
+    .navstyle:hover {
+        background-color: white;
+    }
+
+    .navstyle.active {
+        border: solid Black 1px;
+        border-radius: 20px;
+        margin: 0 40px;
+        padding: 4px;
+        font-weight: bold;
+        text-decoration-line: underline;
+    }
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+    a:hover {
+        color: forestgreen;
+    }
+
+footer {
+    position:relative;
+    text-align: center;
+    padding: 0px;
+    background-color: #b4e1d8;
+    color: black;
+    display: block;
+    width: 100%;
+}
+.footer_detail{
+    vertical-align: middle;
+    
+}
